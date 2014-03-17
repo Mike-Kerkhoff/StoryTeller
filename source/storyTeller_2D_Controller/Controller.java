@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import storyTeller_2D_Core.CoreObject;
 
 public class Controller {
-	zuuzzz
+	
 /*
 * Attribute der Klasse 'Controller'	
 */
