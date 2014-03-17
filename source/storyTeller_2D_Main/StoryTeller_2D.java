@@ -202,6 +202,7 @@ public class StoryTeller_2D extends Canvas implements Runnable {
 	}
 	
 	public static void exit() {
+		
 		intro.stop();
 	}
 }
