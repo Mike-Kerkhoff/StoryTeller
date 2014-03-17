@@ -36,7 +36,7 @@ public static void createWindow() {
 			
 			new WindowAdapter() {
 				public void windowClosing(WindowEvent e) {
-					StoryTeller_2D.exit();
+					GameStarter.exit();
 				}
 			}
 			);

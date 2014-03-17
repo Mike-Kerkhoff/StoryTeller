@@ -34,7 +34,7 @@ public class StoryTeller_2D extends Canvas implements Runnable {
 	public static final int HEIGHT = 500;
 	public static final String TITLE = "Story Teller 2D";
 	
-	public static GameState state = GameState.LOADING;
+	public static GameState state = GameState.MENÜ;
 	
 	private static boolean running = false;
 	private Thread gameRunner;
@@ -103,11 +103,11 @@ public class StoryTeller_2D extends Canvas implements Runnable {
 		
 		this.addMouseListener(mouse);
 		this.addMouseMotionListener(mouse);
-		this.addKeyListener(new KeyInput());
+		chapterOne = new Chapter(1);
 		
 		controller.addObject(new Player(50, 0, Object_IDs.PLAYER, tex));
 		camera = new Camera (0, 0);
-		chapterOne = new Chapter(1);
+		this.addKeyListener(new KeyInput());
 		
 	
 	}

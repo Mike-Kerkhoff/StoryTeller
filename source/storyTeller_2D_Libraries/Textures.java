@@ -8,9 +8,6 @@ import java.awt.image.BufferedImage;
 
 public class Textures {
 	
-	
-	
-	
 	public static BufferedImage floorBlock;
 	
 	public static BufferedImage playerStandingFront;

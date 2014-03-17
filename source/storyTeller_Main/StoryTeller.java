@@ -31,10 +31,12 @@ import javax.swing.JOptionPane;
 
 
 
+
 import org.lwjgl.openal.AL;
 
 import storyTeller_2D_Libraries.Audio;
 import storyTeller_2D_Libraries.Images;
+import storyTeller_2D_Main.StoryTeller_2D;
 import storyTeller_2D_Utilities.AudioPlayer;
 import storyTeller_2D_Utilities.ResourceLoader;
 import storyTeller_Main_Locations.LaborStart;
@@ -89,7 +91,6 @@ protected JButton joseph;
 * 		Attribute der Kapitel-Auswahl für Alaine
 */
 
-protected JLabel kapitelauswahlA;
 protected JButton introA;
 protected JButton kapitelA1;
 protected JButton kapitelA2;
@@ -100,7 +101,6 @@ protected JButton zurückMenü3;
 * 		Attribute der Kapitel-Auswahl für Joseph
 */
 
-protected JLabel kapitelauswahlJ;
 protected JButton introJ;
 protected JButton kapitelJ1;
 protected JButton kapitelJ2;
@@ -239,14 +239,6 @@ protected JButton zurückMenü4;
 * Initiierung der Kapitel-Auswahl Elemente für Alaine
 */
 		
-		kapitelauswahlA = new JLabel ("Wählen Sie ein gewünschtes Kapitel:");
-		kapitelauswahlA.setBounds (120, 5, 280, 30);
-		kapitelauswahlA.setForeground(Color.WHITE);
-		kapitelauswahlA.setVisible(false);
-		add(kapitelauswahlA);
-		
-		
-		
 		introA = new JButton ("Intro");
 		introA.setBounds(155, 60, 180, 30);
 		introA.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
@@ -292,12 +284,7 @@ protected JButton zurückMenü4;
 /*
 * Initiierung der Kapitel-Auswahl Elemente für Joseph
 */
-		kapitelauswahlJ = new JLabel ("Wählen Sie ein gewünschtes Kapitel:");
-		kapitelauswahlJ.setBounds (120, 5, 280, 30);
-		kapitelauswahlJ.setForeground(Color.BLACK);
-		kapitelauswahlJ.setVisible(false);
-		add(kapitelauswahlJ);
-		
+	
 		introJ = new JButton ("Intro");
 		introJ.setBounds(155, 60, 180, 30);
 		introJ.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
@@ -546,7 +533,6 @@ protected JButton zurückMenü4;
 					
 				alaine.setVisible(false);
 				joseph.setVisible(false);
-				kapitelauswahlA.setVisible(true);
 				introA.setVisible(true);
 				kapitelA1.setVisible(true);
 				kapitelA2.setVisible(true);
@@ -592,7 +578,6 @@ protected JButton zurückMenü4;
 */
 			if (e.getSource() == zurückMenü3) {
 					
-				kapitelauswahlA.setVisible(false);
 				kapitelA1.setVisible(false);
 				kapitelA2.setVisible(false);
 				introA.setVisible(false);
@@ -614,8 +599,8 @@ protected JButton zurückMenü4;
 			
 			alaine.setVisible(false);
 			joseph.setVisible(false);
-			kapitelauswahlJ.setVisible(true);
 			introJ.setVisible(true);
+			introJ.setEnabled(true);
 			kapitelJ1.setVisible(true);
 			kapitelJ2.setVisible(true);
 			nextPage2.setVisible(true);
@@ -631,6 +616,8 @@ protected JButton zurückMenü4;
 		if (e.getSource() == introJ) {
 			
 			AudioPlayer.getMusic(Audio.BACKGROUND_THEME).stop();
+			this.setVisible(false);
+			StoryTeller_2D.main(null);
 		}	
 		
 /*
@@ -658,7 +645,6 @@ protected JButton zurückMenü4;
 */
 		if (e.getSource() == zurückMenü4) {
 		
-			kapitelauswahlJ.setVisible(false);
 			kapitelJ1.setVisible(false);
 			kapitelJ2.setVisible(false);
 			introJ.setVisible(false);
