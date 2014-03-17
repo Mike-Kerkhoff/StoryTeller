@@ -21,7 +21,7 @@ public class Controller {
 */
 	
 	private ArrayList<CoreObject> objects = new ArrayList<CoreObject>();
-	k
+	
 /*
 * Tick-Methode, die immer wieder aufgerufen wird, um das Spiel zu updaten. 
 * Ruft die Tick-Methode jedes Objektes auf, das ein 'CoreObject' ist und sich
