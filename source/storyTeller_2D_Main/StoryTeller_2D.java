@@ -24,6 +24,7 @@ import storyTeller_2D_Screens.LoadingScreen;
 import storyTeller_2D_Screens.Menü;
 import storyTeller_2D_Textures.TextureManager;
 import storyTeller_2D_Utilities.ResourceLoader;
+import storyTeller_2D_Utilities.Updater;
 import storyTeller_2D_World.Chapter;
 
 public class StoryTeller_2D extends Canvas implements Runnable {
@@ -184,11 +185,17 @@ public class StoryTeller_2D extends Canvas implements Runnable {
 			
 	case 10: 
 			
+			Updater.checkForUpdate(false);
+			counter++;
+			LoadingScreen.loadMore();
+			return;
+			
+	case 11: 
+	
 			counter++;
 			LoadingScreen.loadMore();
 			state = GameState.MENÜ;
 			return;
-			
 	}
 		
 	}

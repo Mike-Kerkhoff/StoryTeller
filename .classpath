@@ -6,7 +6,7 @@
 	<classpathentry kind="lib" path="C:/Users/Dorian Blackwood/git/StoryTeller/ExternalLibraries/jorbis-0.0.15.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Dorian Blackwood/git/StoryTeller/ExternalLibraries/lwjgl.jar">
 		<attributes>
-			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="StoryTeller2/natives/windows"/>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="StoryTeller/ExternalLibraries/natives/windows"/>
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="C:/Users/Dorian Blackwood/git/StoryTeller/ExternalLibraries/slick.jar"/>
