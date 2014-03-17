@@ -12,7 +12,7 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.Sound;
 
 import storyTeller_2D_Libraries.Reference;
-import storyTeller_2D_Screens.LoadingScreen;
+import gameStarter_Screens.LoadingScreen;
 
 public class AudioPlayer {
 
@@ -23,6 +23,7 @@ public class AudioPlayer {
 	public static void addSound(String key, String path) {
 		
 		LoadingScreen.setMessage("Loading sounds from " + Reference.SOUND_LOCATION);
+		
 		
 		try {
 			

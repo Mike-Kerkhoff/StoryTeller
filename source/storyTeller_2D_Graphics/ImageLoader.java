@@ -15,7 +15,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 import storyTeller_2D_Libraries.Reference;
-import storyTeller_2D_Screens.LoadingScreen;
+import gameStarter_Screens.LoadingScreen;
 
 public class ImageLoader {
 	

@@ -8,7 +8,6 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 import javax.swing.JFrame;
-
 import storyTeller_2D_Main.StoryTeller_2D;
 
 public class Window {
@@ -55,4 +54,6 @@ public void setTitle(String title) {
 public static JFrame getInstance() {
 	return frame;
 }
+
+
 }

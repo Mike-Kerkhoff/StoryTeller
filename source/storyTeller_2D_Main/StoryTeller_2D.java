@@ -20,11 +20,8 @@ import storyTeller_2D_Graphics.Window;
 import storyTeller_2D_Input.KeyInput;
 import storyTeller_2D_Input.MouseInput;
 import storyTeller_2D_Libraries.Object_IDs;
-import storyTeller_2D_Screens.LoadingScreen;
 import storyTeller_2D_Screens.Menü;
 import storyTeller_2D_Textures.TextureManager;
-import storyTeller_2D_Utilities.ResourceLoader;
-import storyTeller_2D_Utilities.Updater;
 import storyTeller_2D_World.Chapter;
 
 public class StoryTeller_2D extends Canvas implements Runnable {
@@ -46,15 +43,9 @@ public class StoryTeller_2D extends Canvas implements Runnable {
 	private MouseInput mouse;
 	
 	private static Controller controller = new Controller();
-	
 	private static TextureManager tex;
-	
 	public Chapter chapterOne;
-	
 	private Camera camera; 
-	
-	private int time = 100;
-	private int counter = 0;
 	
 	public static void main(String[] args) {
 			
@@ -104,112 +95,24 @@ public class StoryTeller_2D extends Canvas implements Runnable {
 	}
 	
 	public void init () {
-	
-		ResourceLoader.preload();
-	}
-	
-	private void load() {
 		
-	switch (counter) {
+		tex = new TextureManager();
+		menü = new Menü();
+		renderer = new Renderer();
+		mouse = new MouseInput();
+		
+		this.addMouseListener(mouse);
+		this.addMouseMotionListener(mouse);
+		this.addKeyListener(new KeyInput());
+		
+		controller.addObject(new Player(50, 0, Object_IDs.PLAYER, tex));
+		camera = new Camera (0, 0);
+		chapterOne = new Chapter(1);
+		
 	
-	case 0: 
-			ResourceLoader.loadImages();
-			counter++;
-			LoadingScreen.loadMore();
-			return;
-	
-	case 1:
-			ResourceLoader.loadMusic();
-			counter++;
-			LoadingScreen.loadMore();
-			return;
-	
-	case 2: 
-			ResourceLoader.loadSounds();
-			counter++;
-			LoadingScreen.loadMore();
-			return;
-	
-	case 3:
-			ResourceLoader.loadSpritesheets();
-			counter++;
-			LoadingScreen.loadMore();
-			return;
+	}
 
-	case 4: 
-			
-			tex = new TextureManager();
-			counter++;
-			LoadingScreen.loadMore();
-			return;
-	
-	case 5:
-			
-			menü = new Menü();
-			counter++;
-			LoadingScreen.loadMore();
-			return;
-
-	case 6: 
-		
-			renderer = new Renderer();
-			counter++;
-			LoadingScreen.loadMore();
-			return;
-	
-	case 7:
-		
-			mouse = new MouseInput();
-			this.addMouseListener(mouse);
-			this.addMouseMotionListener(mouse);
-			counter++;
-			LoadingScreen.loadMore();
-			return;
-	
-	case 8: 
-		
-			chapterOne = new Chapter(1);
-			counter++;
-			LoadingScreen.loadMore();
-			return;
-	
-	case 9: 
-		
-			controller.addObject(new Player(50, 0, Object_IDs.PLAYER, tex));
-			camera = new Camera (0, 0);
-			this.addKeyListener(new KeyInput());
-			
-			counter++;
-			LoadingScreen.loadMore();
-			return;
-			
-	case 10: 
-			
-			Updater.checkForUpdate(false);
-			counter++;
-			LoadingScreen.loadMore();
-			return;
-			
-	case 11: 
-	
-			counter++;
-			LoadingScreen.loadMore();
-			state = GameState.MENÜ;
-			return;
-	}
-		
-	}
-	
 	private void tick() {
-		
-		if (state == GameState.LOADING) {
-			time --;
-			if (time <= 0) {
-				load();
-				time = 50;
-			}
-			
-		}
 		
 		if (state == GameState.BEGINNEN) {
 			controller.tick();
@@ -220,7 +123,7 @@ public class StoryTeller_2D extends Canvas implements Runnable {
 
 	private void render() {
 		
-BufferStrategy bufferStrategy = this.getBufferStrategy();
+		BufferStrategy bufferStrategy = this.getBufferStrategy();
 		
 		if (bufferStrategy == null) {
 			createBufferStrategy(3);
@@ -233,12 +136,7 @@ BufferStrategy bufferStrategy = this.getBufferStrategy();
 			graphics.setColor(new Color(6, 0, 40));
 			graphics.fillRect(0, 0, getWidth(), getHeight());
 		
-			if (state == GameState.LOADING) {
-				LoadingScreen.render(graphics);
-				
-			}
-			
-			else { renderer.renderBackground(graphics);
+			renderer.renderBackground(graphics);
 			
 			if (camera != null) {
 	
@@ -251,19 +149,15 @@ BufferStrategy bufferStrategy = this.getBufferStrategy();
 			graphics2D.translate(-camera.getX(), -camera.getY());
 		
 			}
-		}
 			
 			bufferStrategy.show();
 			graphics.dispose();
 	}
 	
-	
-	public static Player getPlayer() {
-		return null;
-	}
-	
 	public static TextureManager getTextureManager() {
+		
 		return tex;
+		
 	}
 
 	public synchronized void start () {
