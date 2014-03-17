@@ -1,2 +1,2 @@
-StoryTeller2
+StoryTeller
 ============
