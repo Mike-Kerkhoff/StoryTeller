@@ -38,6 +38,11 @@ public class Player extends CoreObject {
 	
 	private float gravity = 0.5f;
 	
+/*
+* Konstruktor der Klasse 'Player', welcher ein int 'x', ein int 'y', ein int 'id'
+* und einen TextureManager 'texture' entgegen nimmt	
+*/
+	
 	public Player (float x, float y, int id, TextureManager texture) {
 		
 		super(x, y, id, texture);
@@ -48,38 +53,66 @@ public class Player extends CoreObject {
 		
 	}
 	
+/*
+* Gibt zurück, ob der Spieler gerade am Springen ist.
+*/
+	
 	public Boolean isJumping() {
 		
 		return jumping;
 		
 	}
 
+/*
+* Nimmt einen Boolean 'jumping' entgegen und übernimmt diesen	
+*/
+	
 	public void setJumping(Boolean jumping) {
 		
 		this.jumping = jumping;
 		
 	}
+
+/*
+* Gibt zurück, ob sich der Spieler gerade bewegt. 
+*/
 	
 	public Boolean getMoving() {
 		
 		return moving;
 	}
 
+/*
+*  Nimmt einen Boolean 'moving' entgegen und übernimmt diesen
+*/
+	
 	public void setMoving(Boolean moving) {
 		
 		this.moving = moving;
 	}
+	
+/*
+* Nimmt eine Direction 'direction' entgegen und übernimmt diese	
+*/
 	
 	public void setDirection(Direction direction) {
 		
 		this.direction = direction;
 	}
 	
+/*
+* Gibt zurück, in welche Richtung sich der Spieler gerade bewegt	
+*/
+	
 	public Direction getDirection() {
 		
 		return direction;
 	}
 
+/*
+* Tick-Methode (überschrieben von der Überklasse 'CoreObject')
+*/
+	
 	public void tick() {
 		x += velX;
 		y += velY;
@@ -100,6 +133,10 @@ public class Player extends CoreObject {
 		}
 			
 	}
+
+/*
+* Render-Methode (Überschrieben von der Oberklasse 'CoreObject')
+*/
 	
 	public void render (Graphics graphics) {
 		
@@ -141,6 +178,11 @@ public class Player extends CoreObject {
 		}
 	}
 
+/*
+* Lässt den Spieler fallen anhand der Gravitation, falls dieser
+* nicht am Springen ist	
+*/
+	
 	public void falling() {
 		
 		if(falling) {
@@ -149,6 +191,11 @@ public class Player extends CoreObject {
 			
 		}
 	}
+	
+/*
+* Überprüft, ob der Spieler in Berührung mit Blöcken ist und 
+* setzt die Collision fest	
+*/
 	
 	private void checkCollision() {
 		
@@ -191,4 +238,9 @@ public class Player extends CoreObject {
 		}
 		
 	}
+	
+/*
+* Ende der Klasse 'Player'
+*/
+	
 }
