@@ -9,7 +9,7 @@ import java.awt.image.BufferedImage;
 import storyTeller_2D_Controller.Controller;
 import storyTeller_2D_Main.StoryTeller_2D;
 import storyTeller_2D_Objects.Block;
-import storyTeller_2D_Libraries.Images;
+import storyTeller_2D_Libraries.Chapters;
 import storyTeller_2D_Libraries.Object_IDs;
 import storyTeller_2D_Libraries.Textures;
 
@@ -22,11 +22,11 @@ public class Chapter {
 	public Chapter(int number) {
 		switch (number) {
 		case 1: 
-			image = Images.level1;
+			image = Chapters.introA;
 			break;
 			
 		default: 
-			image = Images.level1;
+			image = Chapters.introA;
 		}
 	}
 	

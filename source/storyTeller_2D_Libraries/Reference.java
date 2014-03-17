@@ -14,6 +14,7 @@ public class Reference {
 	public static final int CENTER_Y = StoryTeller_2D.HEIGHT / 2;
 	public static final String RESOURCE_LOCATION = "./Resources/";
 	public static final String SPRITESHEET_LOCATION = RESOURCE_LOCATION + "Spritesheets/";
+	public static final String CHAPTER_LOCATION = RESOURCE_LOCATION + "Chapters/";
 	public static final String IMAGE_LOCATION = RESOURCE_LOCATION + "Images/";
 	public static final String FONT_LOCATION = RESOURCE_LOCATION + "Fonts/";
 	public static final String SOUND_LOCATION = RESOURCE_LOCATION + "Sounds/";

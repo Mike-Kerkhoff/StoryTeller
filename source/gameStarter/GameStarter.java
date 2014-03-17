@@ -33,6 +33,7 @@ private static final long serialVersionUID = 10L;
 	private int time = 100;
 	private int counter = 0;
 	
+	
 	public static GameState state = GameState.LOADING;
 	
 	public static void main(String[] args) {
@@ -45,7 +46,9 @@ private static final long serialVersionUID = 10L;
 	}
 	
 	public static GameStarter getInstance() {
+		
 		return starter;
+		
 	}
 	
 	public void run() {
@@ -69,8 +72,10 @@ private static final long serialVersionUID = 10L;
 					delta--;
 					
 				}
+				
 				 render();
 			}
+			
 			stop();
 		}
 
@@ -106,15 +111,21 @@ private static final long serialVersionUID = 10L;
 				counter++;
 				LoadingScreen.loadMore();
 				return;
-				
 		case 4: 
+			
+				ResourceLoader.loadChapters();
+				counter++;
+				LoadingScreen.loadMore();
+				return;
+			
+		case 5: 
 				
 				Updater.checkForUpdate(false);
 				counter++;
 				LoadingScreen.loadMore();
 				return;
 				
-		case 5: 
+		case 6: 
 		
 				counter++;
 				LoadingScreen.loadMore();
@@ -153,6 +164,7 @@ private static final long serialVersionUID = 10L;
 			graphics.fillRect(0, 0, getWidth(), getHeight());
 		
 		if (state == GameState.LOADING) {
+			
 			LoadingScreen.render(graphics);
 				
 			}

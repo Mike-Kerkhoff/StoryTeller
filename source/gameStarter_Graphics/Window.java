@@ -17,6 +17,7 @@ public class Window {
 	
 private static JFrame frame;
 
+
 public static void initWindow(String title) {
 	
 	frame = new JFrame(title);

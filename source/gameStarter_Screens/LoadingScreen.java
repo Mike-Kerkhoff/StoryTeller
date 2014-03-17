@@ -14,7 +14,7 @@ import storyTeller_2D_Libraries.Images;
 public class LoadingScreen {
 
 	private static int width = 500; 
-	private static int numResources = 4;
+	private static int numResources = 5;
 	private static int loadAdd = width / numResources;
 	private static int loadStatus = 0;
 	

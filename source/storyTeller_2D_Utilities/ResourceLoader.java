@@ -4,9 +4,11 @@
 
 package storyTeller_2D_Utilities;
 
+import storyTeller_2D_Graphics.ChapterLoader;
 import storyTeller_2D_Graphics.ImageLoader;
 import storyTeller_2D_Graphics.SpritesheetLoader;
 import storyTeller_2D_Libraries.Audio;
+import storyTeller_2D_Libraries.Chapters;
 import storyTeller_2D_Libraries.Fonts;
 import storyTeller_2D_Libraries.Images;
 import storyTeller_2D_Libraries.Spritesheets;
@@ -15,6 +17,7 @@ public class ResourceLoader {
 	
 	private static ImageLoader imageLoader = new ImageLoader();
 	private static SpritesheetLoader spritesheetLoader = new SpritesheetLoader();
+	private static ChapterLoader chapterLoader = new ChapterLoader();
 	
 	public static void preload() {
 		
@@ -36,9 +39,14 @@ public class ResourceLoader {
 		
 		Spritesheets.spritesheet_blocks = spritesheetLoader.loadImage("Tiles-Spritesheet 500x500.png");
 		Spritesheets.spritesheet_player = spritesheetLoader.loadImage("Charakter-Spritesheet 450x900.png");
-		Images.level1 = spritesheetLoader.loadImage("Chapters\\Level1.png");
 	}
 	
+	
+	public static void loadChapters() {
+		
+		Chapters.introA = chapterLoader.loadImage("Level1.png");
+		
+	}
 	public static void loadFonts() {
 		
 		Fonts.addFont(new Fonts(""));
