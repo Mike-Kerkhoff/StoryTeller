@@ -4,6 +4,10 @@
 
 package storyTeller_2D_Graphics;
 
+/*
+* Importierte Bibliotheken und Klassen
+*/
+
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -15,8 +19,16 @@ import storyTeller_2D_Screens.LoadingScreen;
 
 public class ImageLoader {
 	
+/*
+* Attribute der Klasse 'ImageLoader'	
+*/
+	
 	private BufferedImage image;
 
+/*
+* Methode 'loadImage' ladet ein Bild in das Spiel	
+*/
+	
 	public BufferedImage loadImage (String imagePath) {
 	
 	LoadingScreen.setMessage("Loading images from " + Reference.IMAGE_LOCATION);	
@@ -34,5 +46,9 @@ public class ImageLoader {
 	}
 	return null;
 	}
+	
+/*
+* Ende der Klasse 'ImageLoader'	
+*/
 	
 }

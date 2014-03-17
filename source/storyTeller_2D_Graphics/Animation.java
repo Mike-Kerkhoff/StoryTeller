@@ -4,11 +4,19 @@
 
 package storyTeller_2D_Graphics;
 
+/*
+* Importierte Bibliotheken und Klassen
+*/
+
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
 public class Animation {
 
+/*
+* Attribute der Klasse 'Animation' 	
+*/
+	
 	private int count = 0;
 	private int index = 0;
 	private int speed;
@@ -16,6 +24,11 @@ public class Animation {
 	
 	private BufferedImage currentImage; 
 	private BufferedImage animation[];
+	
+/*
+* Konstruktor der Klasse 'Animation', welcher ein int 'speed' und 
+* ein BufferedImage-Array 'animation' entgegen nimmt	
+*/
 	
 	public Animation(int speed, BufferedImage[] animation) {
 		this.speed = speed;
@@ -25,6 +38,11 @@ public class Animation {
 		
 	}
 	
+/*
+* Die Methode 'runAnimation' bringt die Animation des Spielers 
+* zum laufen	
+*/
+	
 	public void runAnimation() {	
 		index++;
 		
@@ -33,6 +51,10 @@ public class Animation {
 			nextFrame();
 		}
 	} 
+	
+/*
+* Die Methode 'nextFrame' zählt die einzelnen 'frames' durch	
+*/
 	
 	public void nextFrame() {
 		for (int k = 0; k < frames; k++) {
@@ -47,9 +69,19 @@ public class Animation {
 		}
 	}
 	
+/*
+* Die Methode 'drawAnimation' zeichnet die einzelnen 'frames' und
+* somit auch die Animation des Spielers	
+*/
+	
 	public void drawAnimation(Graphics graphics, float x, float y) {
 		
 		graphics.drawImage(currentImage, (int)x, (int)y,null);
 		
 	}
+	
+/*
+* Ende der Klasse 'Animation'
+*/
+	
 }
