@@ -11,16 +11,18 @@ package storyTeller_Locations;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
 
+import org.lwjgl.openal.AL;
+
 import storyTeller_2D_Libraries.Images;
-import storyTeller_2D_Utilities.ResourceLoader;
 import storyTeller_Main.Speicherplatz;
 import storyTeller_Main.StoryTeller;
 
@@ -65,7 +67,6 @@ public class LaborStart extends Location implements ActionListener {
 * Laden des Hintergrundbildes
 */
 		
-		ResourceLoader.loadImages();
 		this.setContentPane(new JLabel(new ImageIcon(Images.hintergrundbild1)));
 
 /*
@@ -173,7 +174,15 @@ public class LaborStart extends Location implements ActionListener {
  */
 		
 		LaborStart laborStart = new LaborStart("Story Teller", "New Eden Labor", "Amerika", "Nicht bekannt", 2);
-		laborStart.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
+		laborStart.addWindowListener(
+				
+				new WindowAdapter() {
+					public void windowClosing(WindowEvent e) {
+						LaborStart.exit();
+					}
+				}
+				);
+		
 		laborStart.setSize (600, 600);
 		laborStart.setLocationRelativeTo(null);
 		laborStart.setResizable(false);
@@ -182,10 +191,24 @@ public class LaborStart extends Location implements ActionListener {
 		
 	}
 	
+	
+		private static void cleanUp () {
+			
+			AL.destroy();
+			
+		}
+		
+		public static void exit() {
+			
+			cleanUp();
+			System.exit(1);
+			
+		}
+	
 /*
 * Überschriebene actionPerformed-Methode des ActionListeners
 */
-	
+
 	public void actionPerformed(ActionEvent i) {
 
 	/*

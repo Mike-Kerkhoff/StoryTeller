@@ -2,16 +2,14 @@
 *@Autor Mike Kerkhoff ©2014 
 */
 
-package gameStarter_Graphics;
-
-import gameStarter.GameStarter;
+package gameStarter;
 
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 import javax.swing.JFrame;
 
-import storyTeller_2D_Main.StoryTeller_2D;
+import storyTeller_Main.StoryTeller;
 
 public class Window {
 	
@@ -32,7 +30,7 @@ public static void addGameStarter(GameStarter starter) {
 public static void createWindow() {
 	
 	frame.setResizable(false);
-	frame.setSize(StoryTeller_2D.WIDTH, StoryTeller_2D.HEIGHT);
+	frame.setSize(StoryTeller.WIDTH, StoryTeller.HEIGHT);
 	frame.addWindowListener(
 			
 			new WindowAdapter() {

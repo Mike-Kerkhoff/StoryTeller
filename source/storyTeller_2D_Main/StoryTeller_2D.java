@@ -195,7 +195,7 @@ public class StoryTeller_2D extends Canvas implements Runnable {
 		System.exit(1);
 		
 		}
-	private void cleanUp () {
+	private static void cleanUp () {
 		
 		AL.destroy();
 		

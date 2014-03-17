@@ -21,7 +21,7 @@ public class ResourceLoader {
 	
 	public static void preload() {
 		
-		Images.hintergrundbild3 =  imageLoader.loadImage("background3.jpg");
+		Images.hintergrundbild2 =  imageLoader.loadImage("background2.jpg");
 	}
 	
 	public static void loadImages() {

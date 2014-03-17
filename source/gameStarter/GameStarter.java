@@ -3,9 +3,6 @@
 */
 package gameStarter;
 
-import gameStarter_Graphics.Window;
-import gameStarter_Screens.LoadingScreen;
-
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Graphics;
@@ -120,7 +117,7 @@ private static final long serialVersionUID = 10L;
 			
 		case 5: 
 				
-				Updater.checkForUpdate(false);
+				Updater.checkForUpdate(true);
 				counter++;
 				LoadingScreen.loadMore();
 				return;

@@ -12,7 +12,7 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.Sound;
 
 import storyTeller_2D_Libraries.Reference;
-import gameStarter_Screens.LoadingScreen;
+import gameStarter.LoadingScreen;
 
 public class AudioPlayer {
 

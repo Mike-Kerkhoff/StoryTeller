@@ -3,7 +3,7 @@
 */
 package storyTeller_2D_Graphics;
 
-import gameStarter_Screens.LoadingScreen;
+import gameStarter.LoadingScreen;
 
 import java.awt.image.BufferedImage;
 import java.io.File;

@@ -11,16 +11,18 @@ package storyTeller_Locations;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
 
+import org.lwjgl.openal.AL;
+
 import storyTeller_2D_Libraries.Images;
-import storyTeller_2D_Utilities.ResourceLoader;
 import storyTeller_Main.Speicherplatz;
 import storyTeller_Main.StoryTeller;
 
@@ -65,7 +67,6 @@ public SchlafzimmerStart (String title, String name, String land, String stadt, 
 * Laden des Hintergrundbilds
 */
 					
-			ResourceLoader.loadImages();
 			this.setContentPane(new JLabel(new ImageIcon(Images.hintergrundbild1)));
 
 /*
@@ -179,7 +180,15 @@ public SchlafzimmerStart (String title, String name, String land, String stadt, 
 */
 		
 		SchlafzimmerStart schlafzimmerStart = new SchlafzimmerStart("Story Teller", "Alices Schlafzimmer", "Wales", "Cardiff", 1);
-		schlafzimmerStart.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
+		schlafzimmerStart.addWindowListener(
+				
+				new WindowAdapter() {
+					public void windowClosing(WindowEvent e) {
+						SchlafzimmerStart.exit();
+					}
+				}
+				);
+		
 		schlafzimmerStart.setSize (600, 600);
 		schlafzimmerStart.setLocationRelativeTo(null);
 		schlafzimmerStart.setResizable(false);
@@ -187,6 +196,20 @@ public SchlafzimmerStart (String title, String name, String land, String stadt, 
 		schlafzimmerStart.setVisible (true);	
 	
 	}
+	
+	private static void cleanUp () {
+		
+		AL.destroy();
+		
+	}
+	
+	public static void exit() {
+		
+		cleanUp();
+		System.exit(1);
+		
+	}
+	
 	
 /*
 * Überschriebene actionPerformed-Methode des ActionListeners

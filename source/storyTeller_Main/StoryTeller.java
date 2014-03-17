@@ -13,6 +13,8 @@ import java.awt.Color;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
@@ -23,23 +25,12 @@ import javax.swing.JOptionPane;
 
 // import StoryTeller_Main_Locations.IntroJ;
 
-
-
-
-
-
-
-
-
-
-
 import org.lwjgl.openal.AL;
 
 import storyTeller_2D_Libraries.Audio;
 import storyTeller_2D_Libraries.Images;
 import storyTeller_2D_Main.StoryTeller_2D;
 import storyTeller_2D_Utilities.AudioPlayer;
-import storyTeller_2D_Utilities.ResourceLoader;
 import storyTeller_Locations.LaborStart;
 import storyTeller_Locations.SchlafzimmerStart;
 
@@ -53,6 +44,9 @@ private static final long serialVersionUID = 1L;
 *  
 * 		Attribute des Hauptmenüs
 */
+
+public static final int WIDTH = 500;
+public static final int HEIGHT = 500;
 
 private JButton auswahl;
 private JButton credits;
@@ -120,7 +114,6 @@ protected JButton zurückMenü4;
 /*
 * Laden des Hintergrundbildes
 */
-		ResourceLoader.loadImages();
 		this.setContentPane(new JLabel(new ImageIcon(Images.hintergrundbild4)));
 	
 		
@@ -335,19 +328,39 @@ protected JButton zurückMenü4;
 		
 		public static void main (String [] args) {
 			
-			ResourceLoader.loadMusic();
 			AudioPlayer.getMusic(Audio.BACKGROUND_THEME).loop(1f, 0.1f);
 			
 			StoryTeller storyTeller = new StoryTeller("Story Teller");
 			storyTeller.setVisible(true);
-			storyTeller.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
-			storyTeller.setSize (500, 500);
+			storyTeller.addWindowListener(
+					
+					new WindowAdapter() {
+						public void windowClosing(WindowEvent e) {
+							StoryTeller.exit();
+						}
+					}
+					);
+			
+			storyTeller.setSize (WIDTH, HEIGHT);
 			storyTeller.setLocationRelativeTo(null);
 			storyTeller.setResizable(false);
 			storyTeller.setLayout (null);
 			storyTeller.setVisible(true);
 		
 		}	
+		
+		private static void cleanUp () {
+			
+			AL.destroy();
+			
+		}
+		
+		public static void exit() {
+			
+			cleanUp();
+			System.exit(1);
+			
+		}
 	
 /*
 * Überschriebene actionPerformed-Methode des ActionListeners
@@ -419,8 +432,7 @@ protected JButton zurückMenü4;
 		if (e.getSource() == spielEnde) {
 			
 			AudioPlayer.getMusic(Audio.BACKGROUND_THEME).stop();
-			AL.destroy();
-			System.exit(0);
+			exit();
 			
 		}
 				
@@ -493,7 +505,7 @@ protected JButton zurückMenü4;
 * die Kapitel der Geschichte frei
 */
 		
-		if (e.getSource() == spielStand) {
+			if (e.getSource() == spielStand) {
 				Speicherplatz.spielLaden();
 				AudioPlayer.getMusic(Audio.BACKGROUND_THEME).stop();
 
@@ -513,18 +525,18 @@ protected JButton zurückMenü4;
 * Kehrt zum Hauptmenü zurück
 */
 			
-		if (e.getSource() == zurückMenü2) {
-			
-			auswahl.setVisible(true);
-			credits.setVisible(true);
-			einstellungen.setVisible(true);
-			spielLaden.setVisible(true);
-			spielEnde.setVisible(true);
-			zurückMenü2.setVisible(false);
-			spielStandReset.setVisible(false);
-			spielStand.setVisible(false);
-			
-		}
+			if (e.getSource() == zurückMenü2) {
+				
+				auswahl.setVisible(true);
+				credits.setVisible(true);
+				einstellungen.setVisible(true);
+				spielLaden.setVisible(true);
+				spielEnde.setVisible(true);
+				zurückMenü2.setVisible(false);
+				spielStandReset.setVisible(false);
+				spielStand.setVisible(false);
+				
+			}
 		
 /*
 * Blendet das Kapitel-Auswahlmenü für Alaine ein
