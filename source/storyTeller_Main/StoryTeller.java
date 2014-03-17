@@ -46,7 +46,7 @@ private static final long serialVersionUID = 1L;
 
 
 /*
-* Attribute der Klasse StoryTeller
+* Attribute der Klasse 'StoryTeller'
 *  
 * 		Attribute des Hauptmenüs
 */
@@ -675,7 +675,7 @@ protected JButton zurückMenü4;
 	}
 	
 /*
-* Ende der Klasse StoryTeller
+* Ende der Klasse 'StoryTeller'
 */	
 	
 }

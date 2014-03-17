@@ -4,12 +4,12 @@
 
 package storyTeller_2D_Entities;
 
+/*
+* Importierte Bibliotheken und Klassen
+*/
+
 import java.awt.Graphics;
 import java.util.ArrayList;
-
-
-
-
 
 import storyTeller_2D_Core.CoreObject;
 import storyTeller_2D_Enums.Direction;
@@ -22,6 +22,9 @@ import storyTeller_2D_Textures.TextureManager;
 
 public class Player extends CoreObject {
 	
+/*
+* Attribute der Klasse 'Player'	
+*/
 	
 	private static ArrayList<CoreObject> blocks = StoryTeller_2D.getInstance().getController().getObjects();
 	

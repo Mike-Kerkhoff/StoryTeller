@@ -4,6 +4,11 @@
 
 package storyTeller_2D_Controller;
 
+/*
+* Importierte Bibliotheken und Klassen
+*/
+
+
 import java.awt.Graphics;
 import java.util.ArrayList;
 
@@ -11,15 +16,20 @@ import storyTeller_2D_Core.CoreObject;
 
 public class Controller {
 
+/*
+* Attribute der Klasse 'Controller'	
+*/
+	
 	private ArrayList<CoreObject> objects = new ArrayList<CoreObject>();
 	
+/*
+* Tick-Methode, die immer wieder aufgerufen wird, um das Spiel zu updaten. 
+* Ruft die Tick-Methode jedes Objektes auf, das ein 'CoreObject' ist und sich
+* in der ArrayList 'objects' befindet. 
+*/
 	
 	public void tick() {
 		
-		
-/*
- * for-each-loop (for each CoreObject, do (...)
- */
 		for(CoreObject obj: objects) {
 			
 			obj.tick();
@@ -28,6 +38,12 @@ public class Controller {
 		}
 
 	
+/*
+* Render-Methode, welche immer wieder aufgerufen wird, um das Spiel zu updaten.
+* Ruft die Render-Methode jedes Objektes auf, das ein 'CoreObject' ist und sich
+* in der ArrayList 'objects' befindet. 	
+*/
+	
 	public void render(Graphics graphics) {
 		for(CoreObject obj: objects) {
 			
@@ -35,10 +51,18 @@ public class Controller {
 		}
 	}
 	
+/*
+* Fügt ein Objekt in die ArrayList 'objects' hinzu
+*/
+	
 	public void addObject(CoreObject instance) {
 		
 		objects.add(instance);
 	}
+	
+/*
+* Löscht ein Element aus der ArrayList 'objects'	
+*/
 	
 	public void removeObject(CoreObject instance) {
 		
@@ -46,9 +70,17 @@ public class Controller {
 		
 	}
 	
+
+/*
+* Gibt alles Objekte der ArrayList 'objects' zurück
+*/
+	
 	public ArrayList<CoreObject> getObjects() {
 		return objects;
 	}
 	
+/*
+* Ende der Klasse 'Controller'
+*/
 	
 }
