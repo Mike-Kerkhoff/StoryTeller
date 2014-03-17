@@ -32,6 +32,7 @@ import javax.swing.JOptionPane;
 
 
 
+
 import org.lwjgl.openal.AL;
 
 import storyTeller_2D_Libraries.Audio;
@@ -39,8 +40,8 @@ import storyTeller_2D_Libraries.Images;
 import storyTeller_2D_Main.StoryTeller_2D;
 import storyTeller_2D_Utilities.AudioPlayer;
 import storyTeller_2D_Utilities.ResourceLoader;
-import storyTeller_Main_Locations.LaborStart;
-import storyTeller_Main_Locations.SchlafzimmerStart;
+import storyTeller_Locations.LaborStart;
+import storyTeller_Locations.SchlafzimmerStart;
 
 public class StoryTeller extends JFrame implements ActionListener {
 	

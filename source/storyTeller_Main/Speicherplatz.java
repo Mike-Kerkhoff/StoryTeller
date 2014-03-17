@@ -15,8 +15,8 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-import storyTeller_Main_Locations.LaborStart;
-import storyTeller_Main_Locations.SchlafzimmerStart;
+import storyTeller_Locations.LaborStart;
+import storyTeller_Locations.SchlafzimmerStart;
 
 
 

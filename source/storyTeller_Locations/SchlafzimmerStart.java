@@ -2,7 +2,7 @@
 *@Autor Mike Kerkhoff ©2014 
 */
 
-package storyTeller_Main_Locations;
+package storyTeller_Locations;
 
 /*
 * Importierte Bibliotheken und Klassen
