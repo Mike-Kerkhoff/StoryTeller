@@ -24,7 +24,6 @@ import storyTeller_2D_Screens.LoadingScreen;
 import storyTeller_2D_Screens.Menü;
 import storyTeller_2D_Textures.TextureManager;
 import storyTeller_2D_Utilities.ResourceLoader;
-import storyTeller_2D_Utilities.Files.Textfile;
 import storyTeller_2D_World.Chapter;
 
 public class StoryTeller_2D extends Canvas implements Runnable {
