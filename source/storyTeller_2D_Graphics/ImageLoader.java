@@ -26,7 +26,8 @@ public class ImageLoader {
 	private BufferedImage image;
 
 /*
-* Methode 'loadImage' ladet ein Bild in das Spiel	
+* Die Methode 'loadImage' nimmt einen String 'imagePath' entgegen
+* und übernimmt diesen, um das BufferedImage zu laden	
 */
 	
 	public BufferedImage loadImage (String imagePath) {

@@ -4,12 +4,20 @@
 
 package storyTeller_2D_Graphics;
 
+/*
+* Importierte Bibliotheken und Klassen
+*/
+
 import java.awt.Color;
 import java.awt.Graphics;
 
 import storyTeller_2D_Main.StoryTeller_2D;
+
 public class Renderer {
 	
+/*
+* Die Methode 'renderForeground' zeichnet den Vordergrund auf den Bildschirm
+*/
 
 	public void renderForeground (Graphics graphics) {
 		
@@ -24,7 +32,7 @@ public class Renderer {
 			break;
 		
 		case BEGINNEN:
-			// graphics.drawImage(Images.hintergrundbild3, 0, 0, null);
+			
 			StoryTeller_2D.getInstance().getController().render(graphics);
 			
 			
@@ -49,7 +57,11 @@ public class Renderer {
 		
 		}
 	
-}
+	}
+	
+/*
+* Die Methode 'renderBackground' zeichnet den Hintergrund auf den Bildschirm
+*/
 	
 	public void renderBackground(Graphics graphics) {
 	
@@ -88,12 +100,20 @@ public class Renderer {
 				graphics.setColor(Color.RED);
 				graphics.drawString("Unknown! GameState", 150, 150);
 			
-	}
+		}
 		
-}
+	}
+	
+/*
+* Die Methode 'renderPlayer' zeichnet den Spieler auf den Bildschirm
+*/
 		
 	public void renderPlayer(Graphics graphics) {
 		
 	}
-		
+	
+/*
+* Ende der Klasse 'Renderer'	
+*/
+	
 }

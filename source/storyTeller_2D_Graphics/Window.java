@@ -4,6 +4,10 @@
 
 package storyTeller_2D_Graphics;
 
+/*
+* Importierte Bibliotheken und Klassen
+*/
+
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
@@ -12,48 +16,80 @@ import storyTeller_2D_Main.StoryTeller_2D;
 
 public class Window {
 	
-private static JFrame frame;
+/*
+* Attribute der Klasse 'Window'
+*/	
+	
+	private static JFrame frame;
 
-public static void initWindow(String title) {
-	
-	frame = new JFrame(title);
-	
-}
+/*
+* Die Methode 'initWindow' iniitiert das JFrame 
+* und das Ladefenster
+*/
 
-public static void addStoryTeller(StoryTeller_2D storyTeller) {
-	
-	frame.add(storyTeller);
-}
+	public static void initWindow(String title) {
+		
+		frame = new JFrame(title);
+		
+	}
 
-public static void createWindow() {
-	
-	frame.setResizable(false);
-	frame.setSize(StoryTeller_2D.WIDTH, StoryTeller_2D.HEIGHT);
-	frame.addWindowListener(
-			
-			new WindowAdapter() {
-				public void windowClosing(WindowEvent e) {
-					StoryTeller_2D.exit();
+/*
+* Die Methode 'addStoryTeller' fügt den StoryTeller_2D
+* zum JFrame hinzu 
+*/
+
+	public static void addStoryTeller(StoryTeller_2D storyTeller) {
+		
+		frame.add(storyTeller);
+	}
+
+/*
+* Die Methode 'createWindow' baut das Fenster auf
+* und definiert die verschiedenen Parameter
+*/
+
+	public static void createWindow() {
+		
+		frame.setResizable(false);
+		frame.setSize(StoryTeller_2D.WIDTH, StoryTeller_2D.HEIGHT);
+		frame.addWindowListener(
+				
+				new WindowAdapter() {
+					public void windowClosing(WindowEvent e) {
+						StoryTeller_2D.exit();
+					}
 				}
-			}
-			);
-	
-	frame.setFocusable(true);
-	frame.setLocationRelativeTo(null);
-	frame.setResizable(false);
-	frame.setVisible(true);
-	frame.pack();
-	
-}
+				);
+		
+		frame.setFocusable(true);
+		frame.setLocationRelativeTo(null);
+		frame.setResizable(false);
+		frame.setVisible(true);
+		frame.pack();
+		
+	}
 
-public void setTitle(String title) {
-	
-	frame.setTitle(title);
-}
+/*
+* Die Methode 'setTitle' nimmt einen String 'title'
+* entgegen und übernimmt diesen
+*/
 
-public static JFrame getInstance() {
-	return frame;
-}
+	public void setTitle(String title) {
+		
+		frame.setTitle(title);
+	}
 
+/*
+* Die Methode 'getInstance' gibt das JFrame-Objekt
+* zurück
+*/
+
+	public static JFrame getInstance() {
+		return frame;
+	}
+
+/*
+* Ende der Klasse 'Window'
+*/
 
 }

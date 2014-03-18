@@ -4,6 +4,10 @@
 
 package gameStarter;
 
+/*
+* Importierte Bibliotheken und Klassen
+*/
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -13,12 +17,20 @@ import storyTeller_Main.StoryTeller;
 
 public class LoadingScreen {
 
+/*
+* Attribute der Klasse 'LoadingScreen'	
+*/
+	
 	private static int width = 398; 
 	private static int numResources = 6;
 	private static int loadAdd = width / numResources;
 	private static int loadStatus = 0;
 	
 	private static String message = "Loading Resources";
+	
+/*
+* Render-Methode, die den LoadingScreen zeichnet	
+*/
 	
 	public static void render (Graphics graphics) {
 		
@@ -36,15 +48,29 @@ public class LoadingScreen {
 		graphics.fillRect(52, 299, loadStatus, 50);
 	}
 	
+/*
+* Die Methode 'loadMore' zählt für den Ladebalken durch, 
+* was noch für Elemente geladen werden müssen	
+*/
+	
 	public static void loadMore() {
 		
 		loadStatus += loadAdd;
 		
 	}
+
+/*
+* Die Methode 'setMessage' nimmt einen String 'message'
+* entgegen und übernimmt diesen
+*/
 	
 	public static void setMessage(String message) {
 		
 		LoadingScreen.message = message;
 	}
+	
+/*
+* Ende der Klasse 'LoadScreen'	
+*/
 	
 }

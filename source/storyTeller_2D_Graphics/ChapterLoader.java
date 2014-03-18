@@ -1,7 +1,12 @@
 /*
-*@Autor Mike Kerkhoff ©17.03.2014 
+*@Autor Mike Kerkhoff ©2014 
 */
+
 package storyTeller_2D_Graphics;
+
+/*
+* Importierte Bibliotheken und Klassen
+*/
 
 import gameStarter.LoadingScreen;
 
@@ -15,8 +20,17 @@ import storyTeller_2D_Libraries.Reference;
 
 public class ChapterLoader {
 	
+/*
+* Attribute der Klasse 'ChapterLoader'
+*/
+	
 	private BufferedImage chapter;
 
+/*
+* Die Methode 'loadImage' nimmt einen String 'imagePath' entgegen
+* und übernimmt diesen, um das BufferedImage zu laden	
+*/
+	
 	public BufferedImage loadImage (String imagePath) {
 			
 	LoadingScreen.setMessage("Loading textures from " + Reference.CHAPTER_LOCATION);
@@ -37,5 +51,9 @@ public class ChapterLoader {
 	
 	}
 	
+
+/*
+* Ende der Klasse 'ChapterLoader'	
+*/
 	
 }
