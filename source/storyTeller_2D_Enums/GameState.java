@@ -5,7 +5,7 @@
 package storyTeller_2D_Enums;
 
 /**
-* Die Klasse 'GameState' verwaltet alle Zustände des StoryTellers.
+* Der Enum 'GameState' verwaltet alle Zustände des StoryTellers.
 */
 
 public enum GameState {
