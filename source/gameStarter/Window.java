@@ -4,8 +4,8 @@
 
 package gameStarter;
 
-/*
-* Importierte Bibliotheken und Klassen
+/**
+* Importierte Bibliotheken und Klassen.
 */
 
 import java.awt.event.WindowAdapter;
@@ -15,17 +15,24 @@ import javax.swing.JFrame;
 
 import storyTeller_Main.StoryTeller;
 
+/**
+* Die Klasse 'Window' kümmert sich darum ein Fenster für
+* die Klasse 'GameStarter' zu erschaffen.
+*/
+
 public class Window {
 	
-/*
-* Attribute der Klasse 'Window'
+/**
+* Fenster für die Klasse 'GameStarter'.		
 */
 	
 	private static JFrame frame;
 
-/*
-* Die Methode 'initWindow' iniitiert das JFrame 
-* und das Ladefenster
+/**
+* Die Methode 'initWindow' nimmt einen Titel entgegen und iniitiert das JFrame 
+* und somit auch das Fenster für die Klasse 'GameStarter'.
+* 
+* @param title : der Titel für das Fenster
 */
 
 	public static void initWindow(String title) {
@@ -34,9 +41,11 @@ public class Window {
 		
 	}
 
-/*
-* Die Methode 'addGameStarter' fügt den GameStarter
-* zum JFrame hinzu 
+/**
+* Die Methode 'addGameStarter' nimmt ein Objekt der Klasse 'GameStarter' entgegen und 
+* fügt den GameStarter zum JFrame hinzu.
+* 
+*  @param starter : ein Objekt der Klasse 'GameStarter' 
 */
 
 	public static void addGameStarter(GameStarter starter) {
@@ -44,9 +53,9 @@ public class Window {
 		frame.add(starter);
 	}
 
-/*
-* Die Methode 'createWindow' baut das Fenster auf
-* und definiert die verschiedenen Parameter
+/**
+* Die Methode 'createWindow' baut das Fenster auf und definiert die verschiedenen 
+* Parameter.
 */
 
 	public static void createWindow() {
@@ -70,9 +79,11 @@ public class Window {
 		
 	}
 
-/*
+/**
 * Die Methode 'setTitle' nimmt einen String 'title'
-* entgegen und übernimmt diesen
+* entgegen und übernimmt diesen.
+* 
+* @param title : der Titel des JFrames
 */
 
 	public void setTitle(String title) {
@@ -80,17 +91,15 @@ public class Window {
 		frame.setTitle(title);
 	}
 
-/*
-* Die Methode 'getInstance' gibt das JFrame-Objekt
-* zurück
+/**
+* Die Methode 'getInstance' gibt das JFrame-Objekt der Klasse 'Window'
+* zurück.
+* 
+* @return das JFrame-Objekt der Klasse 'Window'
 */
 
 	public static JFrame getInstance() {
 		return frame;
 	}
-
-/*
-* Ende der Klasse 'Window'
-*/
 
 }

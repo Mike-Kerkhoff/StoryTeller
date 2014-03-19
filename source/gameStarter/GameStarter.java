@@ -4,8 +4,8 @@
 
 package gameStarter;
 
-/*
-* Importierte Bibliotheken und Klassen
+/**
+* Importierte Bibliotheken und Klassen.
 */
 
 import java.awt.Canvas;
@@ -20,31 +20,77 @@ import storyTeller_2D_Utilities.ResourceLoader;
 import storyTeller_2D_Utilities.Updater;
 import storyTeller_Main.StoryTeller;
 
+/**
+* Die Klasse 'GameStarter' erbt von der Klasse 'Canvas' und 
+* implementiert die Klasse 'Runnable'. Sie startet das Programm 
+* 'StoryTeller' und kümmert sich darum Updates und Resourcen direkt
+* am Anfang zu laden.
+*/
 
 public class GameStarter extends Canvas implements Runnable {
 
-/*
-* Attribute der Klasse 'GameStarter'	
+/**
+* Eine zufällig generierte 'serialVersionUID'.		
 */
 	
 	private static final long serialVersionUID = 10L;
 	
+/**
+* Objekt der Klasse 'GameStarter'.
+*/
+	
 	private static GameStarter starter = new GameStarter();
 	
+/**
+* Breite der Klasse 'GameStarter'.	
+*/
+	
 	public static final int WIDTH = 600;
+	
+/**
+* Höhe der Klasse 'GameStarter'.	
+*/
+	
 	public static final int HEIGHT = 500;
+	
+/**
+* Titel der Klasse 'GameStarter'.	
+*/
+	
 	public static final String TITLE = "StoryTeller: Loading";
 	
+/**
+* Boolische Variable, die besagt, ob das Spiel am Laufen ist.
+*/
+	
 	private static boolean running = false;
+	
+/**
+* Thread der Klasse 'GameStarter'.
+*/
+	
 	private Thread gameStarter;
+	
+/**
+* Hilfvariable für das Laden der Resourcen.
+*/
 	private int time = 100;
+	
+/**
+* Hilfvariable für das Laden der Resourcen.
+*/
+	
 	private int counter = 0;
+	
+/**
+* Startet das Spiel in diesem Zustand
+*/
 	
 	public static GameState state = GameState.LOADING;
 
-/*
-* Main-Methode der Klasse 'GameStarter'	
-*/
+/**
+ * Main-Methode der Klasse 'GameStarter'
+ */
 	
 	public static void main(String[] args) {
 		
@@ -55,9 +101,11 @@ public class GameStarter extends Canvas implements Runnable {
 	
 	}
 	
-/*
-* Die Methode 'getInstance' gibt das zugehörtige Objekt 'starter' 
-* der Klasse 'GameStarter'zurück
+/**
+* Die Methode 'getInstance' gibt Zugang auf die nicht statischen 
+* Elemente der Klasse 'GameStarter' 
+* 
+* @return das Objekt der Klasse 'GameStarter'
 */
 	
 	public static GameStarter getInstance() {
@@ -66,8 +114,9 @@ public class GameStarter extends Canvas implements Runnable {
 		
 	}
 	
-/*
-* Überschriebene Run-Methode der Klasse 'Runnable'
+/**
+* Die Methode 'run' startet die Spiel-Schleife, in der die Tick- und 
+* Render-Methode aufgerufen werden.
 */
 	
 	public void run() {
@@ -98,18 +147,19 @@ public class GameStarter extends Canvas implements Runnable {
 			stop();
 		}
 
-/*
-* Init-Methode	
+/**
+* Die Methode 'init' wird zuallerst beim starten des Programms aufgerufen
+* und kümmert sich darum die ersten Elemente des Spiels zu laden.
 */
 	
 	public void init () {
 		
 		ResourceLoader.preload();
 	}
-	
-/*
+		
+/**
 * Die Methode 'load' ladet alle Bild-, Musik-, Sound- und Spieldateien. 
-* Des Weiteren überprüft die Methode, ob es ein verfügbares Update gibt	
+* Des Weiteren überprüft die Methode, ob es ein verfügbares Update gibt.	 	
 */
 	
 	private void load() {
@@ -164,8 +214,8 @@ public class GameStarter extends Canvas implements Runnable {
 			
 	}
 	
-/*
-* Tick-Methode
+/**
+* Die Methode 'tick' updatet die Objekte der Klasse 'GameStarter'.
 */
 	
 	private void tick() {
@@ -181,8 +231,9 @@ public class GameStarter extends Canvas implements Runnable {
 			
 	}
 	
-/*
-* Render-Methode	
+/**
+* Die Methode 'render' zeichnet die Objekte der Klasse 'GameStarter' 
+* auf den Bildschirm.
 */
 	
 	private void render() {
@@ -209,9 +260,9 @@ public class GameStarter extends Canvas implements Runnable {
 			graphics.dispose();
 	}
 	
-/*
+/**
 * Die Methode 'start' startet das Spiel, falls es nicht
-* bereits begonnen wurde, und beginnt den Thread 'gameStarter'	
+* bereits begonnen wurde, und beginnt den Thread 'gameStarter'.	
 */
 	
 	public synchronized void start () {
@@ -229,8 +280,8 @@ public class GameStarter extends Canvas implements Runnable {
 		
 	}
 	
-/*
-* Die Methode 'cleanUp' säubert das Programm, bevor es beendet wird	
+/**
+* Die Methode 'cleanUp' säubert das Programm, bevor es beendet wird.	
 */
 	
 	private static void cleanUp () {
@@ -239,8 +290,8 @@ public class GameStarter extends Canvas implements Runnable {
 		
 	}
 	
-/*
-* Die Methode 'exit' beendet das Spiel, in dem es die Methode 'stop' aufruft
+/**
+* Die Methode 'exit' beendet das Spiel, in dem es die Methode 'stop' aufruft.
 */
 	
 	public static void exit() {
@@ -249,9 +300,9 @@ public class GameStarter extends Canvas implements Runnable {
 		
 	}
 	
-/*
+/**
 * Die Methode 'stop' beendet das Spiel und ruft dabei die Methode
-* 'cleanUp' auf, um das Programm vor dem Beenden zu säubern	
+* 'cleanUp' auf, um das Programm vor dem Beenden zu säubern.	
 */
 	
 	public synchronized void stop () {
@@ -274,9 +325,5 @@ public class GameStarter extends Canvas implements Runnable {
 			System.exit(1);
 			
 	}
-	
-/*
-* Ende der Klasse 'GameStarter'	
-*/
 	
 }
