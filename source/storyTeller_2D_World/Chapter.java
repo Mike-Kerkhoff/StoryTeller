@@ -4,6 +4,10 @@
 
 package storyTeller_2D_World;
 
+/*
+* Importierte Bibliotheken und Klassen
+*/
+
 import java.awt.image.BufferedImage;
 
 import storyTeller_2D_Controller.Controller;
@@ -15,20 +19,38 @@ import storyTeller_2D_Libraries.Textures;
 
 public class Chapter {
 
+/*
+* Attribute der Klasse 'Chapter'	
+*/
+	
 	private BufferedImage image;
 	private Controller controller = StoryTeller_2D.getInstance().getController();
 	
+/*
+* Konstruktor der Klasse 'Chapter', nimmt ein int 'number' entgegen
+*/
 	
 	public Chapter(int number) {
+		
 		switch (number) {
+		
 		case 1: 
+			
 			image = Chapters.introA;
 			break;
 			
 		default: 
+			
 			image = Chapters.introA;
+			
 		}
+		
 	}
+	
+/*
+* Die Methode 'loadChapter' zersetzt ein Chapter in seine (RGB)Farbwerte
+* und erschafft für jeden RGB-Wert das das gehörige Spielobject
+*/
 	
 	public void loadChapter() {
 		
@@ -49,7 +71,15 @@ public class Chapter {
 					controller.addObject(new Block(x * 50, y * 50, Object_IDs.BLOCK_FLOOR1, Textures.floorBlock));
 				
 				}
+				
 			}
+			
 		}
+		
 	}
+	
+/*
+* Ende der Klasse 'Chapter'	
+*/
+	
 }

@@ -4,6 +4,10 @@
 
 package storyTeller_2D_Libraries;
 
+/*
+* Importierte Bibliotheken und Klassen
+*/
+
 import java.awt.Font;
 import java.awt.FontFormatException;
 import java.awt.GraphicsEnvironment;
@@ -11,19 +15,31 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import storyTeller_2D_Screens.LoadingScreen;
+import gameStarter.LoadingScreen;
 
 public class Fonts {
+	
+/*
+* Attribute der Klasse 'Fonts'	
+*/
 	
 	private static ArrayList<Fonts> fontList = new ArrayList <Fonts>();
 	
 	private static String fontPath;
+	
+/*
+* Konstruktor der Klasse 'Fonts'	
+*/
 	
 	public Fonts (String filePath) {
 		Fonts.fontPath = Reference.FONT_LOCATION + filePath;
 		registerFont();
 		
 	}
+	
+/*
+* Die Methode 'registerFont' registriert eine neue Schriftart	
+*/
 	
 	private void registerFont () {
 		
@@ -45,6 +61,10 @@ public class Fonts {
 		
 	}
 	
+/*
+* Die Methode 'addFont' fügt eine neue Schriftart zum Spiel hinzu	
+*/
+	
 	public static void addFont(Fonts font) {
 		
 		LoadingScreen.setMessage("Loading fonts from " + Reference.FONT_LOCATION);
@@ -52,5 +72,9 @@ public class Fonts {
 		fontList.add(font);
 		
 	}
+	
+/*
+* Ende der Klasse 'Fonts'	
+*/
 	
 }

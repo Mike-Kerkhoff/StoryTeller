@@ -30,11 +30,10 @@ import storyTeller_Main.StoryTeller;
 public class SchlafzimmerStart extends Location implements ActionListener {
 	
 /*
-* Attribute der Klasse SchlafzimmerStart
+* Attribute der Klasse 'SchlafzimmerStart'
 */
 
 	private JLabel textWillkommen;
-	
 	private JTextArea textAusgabe;
 	
 	private JButton zurückMenü;
@@ -56,7 +55,8 @@ public class SchlafzimmerStart extends Location implements ActionListener {
 	private static final long serialVersionUID = 3L;
 	
 /*
-* Konstruktor der Klasse SchlafzimmerStart
+* Konstruktor der Klasse 'SchlafzimmerStart', nimmt einen String 'title', String 'name', 
+* einen String 'land', einen String 'stadt' und ein int 'spielStand' entgegen
 */
 	
 public SchlafzimmerStart (String title, String name, String land, String stadt, int spielStand) {
@@ -64,13 +64,13 @@ public SchlafzimmerStart (String title, String name, String land, String stadt, 
 		super(title, name, land, stadt, spielStand);
 		
 /*
-* Laden des Hintergrundbilds
+* Ladet das Hintergrundbild aus dem Zwischenspeicher der Klasse 'Images'
 */
 					
 			this.setContentPane(new JLabel(new ImageIcon(Images.hintergrundbild1)));
 
 /*
-*  Initiierung der von Location geerbten Attribute		
+*  Initiierung der von 'Location' geerbten Attribute		
 */
 				
 		this.name = name;
@@ -170,14 +170,10 @@ public SchlafzimmerStart (String title, String name, String land, String stadt, 
 			
 
 /*
-* Main-Methode der Klasse SchlafzimmerStart
+* Main-Methode der Klasse 'SchlafzimmerStart'
 */
 	
 	public static void main(String[] args) {
-		
-/*
-* Erstellt ein neues Objekt von der Klasse SchlafzimmerStart
-*/
 		
 		SchlafzimmerStart schlafzimmerStart = new SchlafzimmerStart("Story Teller", "Alices Schlafzimmer", "Wales", "Cardiff", 1);
 		schlafzimmerStart.addWindowListener(
@@ -197,11 +193,19 @@ public SchlafzimmerStart (String title, String name, String land, String stadt, 
 	
 	}
 	
+/*
+* Die Methode 'cleanUp' säubert das Programm, bevor es beendet wird	
+*/	
+	
 	private static void cleanUp () {
 		
 		AL.destroy();
 		
 	}
+	
+/*
+* Die Methode 'exit' beendet das Spiel, nachdem es vorher das Programm gesäubert hat
+*/			
 	
 	public static void exit() {
 		
@@ -212,13 +216,13 @@ public SchlafzimmerStart (String title, String name, String land, String stadt, 
 	
 	
 /*
-* Überschriebene actionPerformed-Methode des ActionListeners
+* Überschriebene actionPerformed-Methode der Klasse 'ActionListener'
 */
 	
 public void actionPerformed(ActionEvent i) {
 
 /*
-* Verlässt das Spiel und kehrt zum Hauptmenü zurück
+* 		Verlässt das Spiel und kehrt zum Hauptmenü zurück
 */
 		
 		if(i.getSource() == zurückMenü) {
@@ -227,11 +231,11 @@ public void actionPerformed(ActionEvent i) {
 		}
 	
 /*
-* Überschreibt den Wert der Variable 'speicherplatz' aus der Klasse Speicherplatz
-* mit dem Wert der von Lokation klasseneigenen Variable 'spielStand' und überschreibt
-* genauso die Variable 'kapitelJoseph' aus der Klasse 'Speicherplatz' und ersetzt diese. 
-* Danach wird die Methode 'spielSpeichern' aus der Klasse Speicherplatz aufgerufen, um das Spiel 
-* zu speichern 
+* 		Überschreibt den Wert der Variable 'speicherplatz' aus der Klasse Speicherplatz
+* 		mit dem Wert der von Lokation klasseneigenen Variable 'spielStand' und überschreibt
+* 		genauso die Variable 'kapitelJoseph' aus der Klasse 'Speicherplatz' und ersetzt diese. 
+* 		Danach wird die Methode 'spielSpeichern' aus der Klasse Speicherplatz aufgerufen, um das Spiel 
+* 		zu speichern 
 */
 	
 	if (i.getSource() == spielSpeichern) {
@@ -246,8 +250,8 @@ public void actionPerformed(ActionEvent i) {
 	}
 		
 /*
-* Das, was passiert, wenn der Knopf 'beginnen' gedrückt wird in Abhängigkeit der 
-* Spielvariablen 'verlauf', 'entscheidung1', 'entscheidung2', 'entscheidung3'		
+* 		Das, was passiert, wenn der Knopf 'beginnen' gedrückt wird in Abhängigkeit der 
+* 		Spielvariablen 'verlauf', 'entscheidung1', 'entscheidung2', 'entscheidung3'		
 */	
 	
 		if (i.getSource() == beginnen) {
@@ -303,8 +307,8 @@ public void actionPerformed(ActionEvent i) {
 			}
 		
 /*
-* Das, was passiert, wenn der Knopf 'weiter' gedrückt wird in Abhängigkeit der 
-* Spielvariablen 'verlauf', 'entscheidung1', 'entscheidung2', 'entscheidung3'	
+* 		Das, was passiert, wenn der Knopf 'weiter' gedrückt wird in Abhängigkeit der 
+* 		Spielvariablen 'verlauf', 'entscheidung1', 'entscheidung2', 'entscheidung3'	
 */				
 			
 		
@@ -329,8 +333,8 @@ public void actionPerformed(ActionEvent i) {
 				}
 			
 /*
-* Das, was passiert, wenn der Knopf 'weiter2' gedrückt wird in Abhängigkeit der 
-* Spielvariablen 'verlauf', 'entscheidung1', 'entscheidung2', 'entscheidung3'		
+* 		Das, was passiert, wenn der Knopf 'weiter2' gedrückt wird in Abhängigkeit der 
+* 		Spielvariablen 'verlauf', 'entscheidung1', 'entscheidung2', 'entscheidung3'		
 */				
 			
 			if(i.getSource() == weiter2) {
@@ -402,8 +406,8 @@ public void actionPerformed(ActionEvent i) {
 		
 			
 /*
-* Das, was passiert, wenn der Knopf 'wahl1' gedrückt wird in Abhängigkeit der 
-* Spielvariablen 'verlauf', 'entscheidung1', 'entscheidung2', 'entscheidung3'		
+* 		Das, was passiert, wenn der Knopf 'wahl1' gedrückt wird in Abhängigkeit der 
+* 		Spielvariablen 'verlauf', 'entscheidung1', 'entscheidung2', 'entscheidung3'		
 */					
 			
 			if (i.getSource() == wahl1) {
@@ -431,8 +435,8 @@ public void actionPerformed(ActionEvent i) {
 			}	
 			
 /*
-* Das, was passiert, wenn der Knopf 'wahl2' gedrückt wird in Abhängigkeit der 
-* Spielvariablen 'verlauf', 'entscheidung1', 'entscheidung2', 'entscheidung3'		
+* 		Das, was passiert, wenn der Knopf 'wahl2' gedrückt wird in Abhängigkeit der 
+* 		Spielvariablen 'verlauf', 'entscheidung1', 'entscheidung2', 'entscheidung3'		
 */				
 			
 			if (i.getSource() == wahl2) {
@@ -460,8 +464,8 @@ public void actionPerformed(ActionEvent i) {
 			}	
 		
 /*
-* Das, was passiert, wenn der Knopf 'wahl3' gedrückt wird in Abhängigkeit der 
-* Spielvariablen 'verlauf', 'entscheidung1', 'entscheidung2', 'entscheidung3'		
+* 		Das, was passiert, wenn der Knopf 'wahl3' gedrückt wird in Abhängigkeit der 
+* 		Spielvariablen 'verlauf', 'entscheidung1', 'entscheidung2', 'entscheidung3'		
 */				
 			
 			if (i.getSource() == wahl3) {

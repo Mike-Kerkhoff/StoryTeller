@@ -4,6 +4,10 @@
 
 package storyTeller_2D_Utilities;
 
+/*
+* Importierte Bibliotheken und Klassen
+*/
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -16,9 +20,18 @@ import gameStarter.LoadingScreen;
 
 public class AudioPlayer {
 
+/*
+* Attribute der Klasse 'AudioPlayer'	
+*/
+	
 	private static Map<String, Sound> soundMap = new HashMap<String, Sound>();
 	
 	private static Map<String, Music> musicMap = new HashMap<String, Music>();
+	
+/*
+* Die Methode 'addSound' nimmt einen String 'key' und einen String 'path'
+* entgegen, um eine Sound-Datei in die Map 'soundMap' zu laden.	
+*/
 	
 	public static void addSound(String key, String path) {
 		
@@ -34,7 +47,13 @@ public class AudioPlayer {
 			System.err.println("Error: Exception");
 			
 		}
+		
 	}
+	
+/*
+* Die Methode 'addMusic' nimmt einen String 'key' und einen String 'path'
+* entgegen, um eine Musik-Datei in die Map 'musicMap' zu laden.	
+*/	
 	
 	public static void addMusic(String key, String path) {
 		
@@ -50,6 +69,11 @@ public class AudioPlayer {
 			
 		}
 	}
+	
+/*
+* Die Methode 'getSound' nimmt einen String 'key' entgegen, um eine
+* Sound-Datei zurückzugeben
+*/
 
 	public static Sound getSound(String key) {
 		
@@ -57,22 +81,42 @@ public class AudioPlayer {
 		
 	}
 	
+/*
+* Die Methode 'getMusic' nimmt einen String 'key' entgegen, um eine
+* Musik-Datei zurückzugeben
+*/	
+	
 	public static Music getMusic(String key) {
 		
 		return musicMap.get(key);
 		
 	}
 	
+/*
+* Die Methode 'playSound' nimmt einen String 'key' entgegen, um eine
+* Sound-Datei abzuspielen	
+*/
+	
 	public static void playSound(String key) {
 		
 		soundMap.get(key).play();
 	}
+	
+/*
+* Die Methode 'playMusic' nimmt einen String 'key' entgegen, um eine
+* Musik-Datei abzuspielen	
+*/	
 	
 public static void playMusic(String key) {
 		
 		musicMap.get(key).loop();
 		
 	}
+
+/*
+* Ende der Klasse 'AudioPlayer'
+*/
+
 }
 
 

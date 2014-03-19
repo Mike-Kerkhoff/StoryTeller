@@ -8,7 +8,6 @@ package storyTeller_Main;
 * Importierte Bibliotheken und Klassen
 */
 
-
 import java.awt.Color;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -22,8 +21,6 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-
-// import StoryTeller_Main_Locations.IntroJ;
 
 import org.lwjgl.openal.AL;
 
@@ -41,8 +38,10 @@ private static final long serialVersionUID = 1L;
 
 /*
 * Attribute der Klasse 'StoryTeller'
-*  
-* 		Attribute des Hauptmenüs
+*/
+
+/*
+* Attribute des Hauptmenüs
 */
 
 public static final int WIDTH = 500;
@@ -58,7 +57,7 @@ protected ImageIcon hintergrund;
 
 
 /*
-* 		Attribute der Geschichten-Auswahl
+* Attribute der Geschichten-Auswahl
 */
 
 private JButton newEden;
@@ -66,7 +65,7 @@ private JButton zwischenDenWeltenspiegeln;
 private JButton zurückMenü;
 
 /*
-* 		Attribute der Spielstand-Auswahl
+* Attribute der Spielstand-Auswahl
 */
 
 private JButton spielStand;
@@ -74,7 +73,7 @@ private JButton spielStandReset;
 private JButton zurückMenü2;
 
 /*
-* 		Attribute der Charakter-Auswahl
+* Attribute der Charakter-Auswahl
 */
 
 protected JLabel textWillkommen;
@@ -83,7 +82,7 @@ protected JButton alaine;
 protected JButton joseph;
 
 /*
-* 		Attribute der Kapitel-Auswahl für Alaine
+* Attribute der Kapitel-Auswahl für Alaine
 */
 
 protected JButton introA;
@@ -93,7 +92,7 @@ protected JButton nextPage1;
 protected JButton zurückMenü3;
 
 /*
-* 		Attribute der Kapitel-Auswahl für Joseph
+* Attribute der Kapitel-Auswahl für Joseph
 */
 
 protected JButton introJ;
@@ -103,7 +102,7 @@ protected JButton nextPage2;
 protected JButton zurückMenü4;
 
 /*
-* Konstruktor der Klasse StoryTeller
+* Konstruktor der Klasse 'StoryTeller'
 */
 	
 	public StoryTeller (String title) {
@@ -112,8 +111,9 @@ protected JButton zurückMenü4;
 
 		
 /*
-* Laden des Hintergrundbildes
+* Ladet das Hintergrundbild aus dem Zwischenspeicher der Klasse 'Images'
 */
+		
 		this.setContentPane(new JLabel(new ImageIcon(Images.hintergrundbild4)));
 	
 		
@@ -323,7 +323,7 @@ protected JButton zurückMenü4;
 
 	
 /*
-* Main-Methode der Klasse StoryTeller
+* Main-Methode der Klasse 'StoryTeller'
 */
 		
 		public static void main (String [] args) {
@@ -348,12 +348,20 @@ protected JButton zurückMenü4;
 			storyTeller.setVisible(true);
 		
 		}	
+	
+/*
+* Die Methode 'cleanUp' säubert das Programm, bevor es beendet wird	
+*/		
 		
 		private static void cleanUp () {
 			
 			AL.destroy();
 			
 		}
+		
+/*
+* Die Methode 'exit' beendet das Spiel, nachdem es vorher das Programm gesäubert hat
+*/		
 		
 		public static void exit() {
 			
@@ -363,13 +371,13 @@ protected JButton zurückMenü4;
 		}
 	
 /*
-* Überschriebene actionPerformed-Methode des ActionListeners
+* Überschriebene actionPerformed-Methode der Klasse 'ActionListener'
 */
 	
 	public void actionPerformed(ActionEvent e) {
 	
 /*
-* Blendet das Auswahlmenü der Geschichten ein
+* 		Blendet das Auswahlmenü der Geschichten ein
 */
 		
 		if(e.getSource() == auswahl)  {
@@ -386,7 +394,7 @@ protected JButton zurückMenü4;
 		}
 		
 /*
-* Öffnet ein OptionDialog mit den Credits
+* 		Öffnet ein JOptionDialog mit den Credits
 */
 		
 		if (e.getSource() == credits) {
@@ -399,7 +407,7 @@ protected JButton zurückMenü4;
 		}
 		
 /*
-* Blendet das Spielstandmenü ein		
+* 		Blendet das Spielstandmenü ein		
 */
 		
 		if (e.getSource() == spielLaden) {
@@ -416,7 +424,7 @@ protected JButton zurückMenü4;
 		}
 			
 /*
-* Blendet die Einstellungen ein	
+* 		Blendet die Einstellungen ein	
 */
 		
 		if (e.getSource() == einstellungen) {
@@ -426,7 +434,7 @@ protected JButton zurückMenü4;
 		}
 	
 /*
-* Beendet das Spiel		
+* 		Beendet das Spiel		
 */
 		
 		if (e.getSource() == spielEnde) {
@@ -437,7 +445,7 @@ protected JButton zurückMenü4;
 		}
 				
 /*
-* Blendet die Charakter-Auswahl der Geschichte 'New Eden' ein		
+* 		Blendet die Charakter-Auswahl der Geschichte 'New Eden' ein		
 */
 		
 		if(e.getSource() == newEden)  {
@@ -457,14 +465,14 @@ protected JButton zurückMenü4;
 		
 
 /*
-* Blendet die Charakter-Auswahl der Geschichte 'Zwischen den Weltenspiegeln' ein
+* 		Blendet die Charakter-Auswahl der Geschichte 'Zwischen den Weltenspiegeln' ein
 */
 		
 		if (e.getSource() == zwischenDenWeltenspiegeln) {
 			
 		}
 /*
-* Kehrt zum Hauptmenü zurück
+* 		Kehrt zum Hauptmenü zurück
 */
 		
 		if(e.getSource() == zurückMenü) {
@@ -482,12 +490,11 @@ protected JButton zurückMenü4;
 		
 
 /*
-* Ruft die Methode 'resetSpeicherplatz' der Klasse Speicherplatz auf, 
-* die den momentanen Speicherplatz und Kapitelfortschritt auf 0 zurückstellt 
-* und zuletzt auch noch die Methode 'spielSpeichern' derselbigen Klasse aufruft,
-* um den zurückgesetzten Wert der drei Variablen in die 
-* 'Spielstand.txt', 'KapitelA', 'KapitelJ' Datein zu schreiben, um auf diese Weise den Spielstand 
-* völlig zurückzusetzen
+* 		Ruft die Methode 'resetSpeicherplatz' der Klasse 'Speicherplatz' auf, 
+* 		die den momentanen Speicherplatz und Kapitelfortschritt auf 0 zurückstellt 
+* 		und zuletzt auch noch die Methode 'spielSpeichern' derselbigen Klasse aufruft,
+* 		um den zurückgesetzten Wert der drei Variablen in die 'Spielstand.txt', 'KapitelA',
+* 		'KapitelJ' Datein zu schreiben, um auf diese Weise den Spielstand völlig zurückzusetzen
 */
 	
 		if (e.getSource() == spielStandReset) {
@@ -499,10 +506,10 @@ protected JButton zurückMenü4;
 		}
 		
 /*
-* Ruft die Methode 'spielLaden' der Klasse Speicherplatz auf,
-* und läd somit den zuletzt gespeicherten Spielstand und schaltet
-* den Werten der Variablen 'kapitelAlaine' und 'kapitelJoseph' entsprechend
-* die Kapitel der Geschichte frei
+* 		Ruft die Methode 'spielLaden' der Klasse 'Speicherplatz' auf,
+* 		und läd somit den zuletzt gespeicherten Spielstand und schaltet
+* 		den Werten der Variablen 'kapitelAlaine' und 'kapitelJoseph' entsprechend
+* 		die Kapitel der Geschichte frei
 */
 		
 			if (e.getSource() == spielStand) {
@@ -522,7 +529,7 @@ protected JButton zurückMenü4;
 		}
 		
 /*
-* Kehrt zum Hauptmenü zurück
+* 		Kehrt zum Hauptmenü zurück
 */
 			
 			if (e.getSource() == zurückMenü2) {
@@ -539,7 +546,7 @@ protected JButton zurückMenü4;
 			}
 		
 /*
-* Blendet das Kapitel-Auswahlmenü für Alaine ein
+* 		Blendet das Kapitel-Auswahlmenü für Alaine ein
 */
 				
 			if (e.getSource() == alaine) {
@@ -555,8 +562,8 @@ protected JButton zurückMenü4;
 			}
 					
 /*
-* Ruft die Main-Methode der Klasse AlaineIntro auf und beginnt
-* somit das Intro von Alaine		
+* 		Ruft die Main-Methode der Klasse 'StoryTeller_2D' auf und beginnt
+* 		somit das Intro von Alaine		
 */
 				
 			if (e.getSource() == introA) {
@@ -565,8 +572,8 @@ protected JButton zurückMenü4;
 			}
 						
 /*
-* Ruft die Main-Methode der Klasse SchlafzimmerStart auf und beginnt
-* somit das Spiel bei dem ersten Kapitel der Geschichte	
+* 		Ruft die Main-Methode der Klasse 'SchlafzimmerStart' auf und beginnt
+* 		somit das Spiel bei dem ersten Kapitel der Geschichte	
 */
 						
 			if(e.getSource() == kapitelA1) {
@@ -577,7 +584,7 @@ protected JButton zurückMenü4;
 			}
 					
 /*
-* Blendet die nächste Seite des Kapitelmenüs ein
+* 		Blendet die nächste Seite des Kapitelmenüs ein
 */
 							
 			if (e.getSource() == nextPage1) {
@@ -587,7 +594,7 @@ protected JButton zurückMenü4;
 						
 			
 /*
-* Kehrt zum Hauptmenü zurück
+* 		Kehrt zum Hauptmenü zurück
 */
 			if (e.getSource() == zurückMenü3) {
 					
@@ -605,7 +612,7 @@ protected JButton zurückMenü4;
 			}		
 			
 /*
-* Blendet das Kapitel-Auswahlmenü für Joseph ein
+* 		Blendet das Kapitel-Auswahlmenü für Joseph ein
 */
 	
 		if (e.getSource() == joseph) {
@@ -622,8 +629,8 @@ protected JButton zurückMenü4;
 		}
 		
 /*
-* Ruft die Main-Methode der Klasse JosephIntro auf und beginnt
-* somit das Intro von Joseph		
+* 		Ruft die Main-Methode der Klasse 'StoryTeller_2D' auf und beginnt
+* 		somit das Intro von Joseph		
 */
 		
 		if (e.getSource() == introJ) {
@@ -634,8 +641,8 @@ protected JButton zurückMenü4;
 		}	
 		
 /*
-* Ruft die Main-Methode der Klasse LaborStart auf und beginnt
-* somit das Spiel bei dem ersten Kapitel der Geschichte	
+* 		Ruft die Main-Methode der Klasse 'LaborStart' auf und beginnt
+* 		somit das Spiel bei dem ersten Kapitel der Geschichte	
 */
 		
 		if(e.getSource() == kapitelJ1) {
@@ -646,7 +653,7 @@ protected JButton zurückMenü4;
 		}
 		
 /*
-* Blendet die nächste Seite des Kapitelmenüs ein
+* 		Blendet die nächste Seite des Kapitelmenüs ein
 */
 	
 		if (e.getSource() == nextPage2) {
@@ -654,7 +661,7 @@ protected JButton zurückMenü4;
 		}
 		
 /*
-* Kehrt zum Hauptmenü zurück
+* 		Kehrt zum Hauptmenü zurück
 */
 		if (e.getSource() == zurückMenü4) {
 		

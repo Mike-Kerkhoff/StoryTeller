@@ -4,6 +4,10 @@
 
 package storyTeller_2D_Input;
 
+/*
+* Importierte Bibliotheken und Klassen
+*/
+
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
@@ -14,9 +18,17 @@ import storyTeller_2D_Main.StoryTeller_2D;
 
 
 public class KeyInput implements KeyListener {
+
+/*
+* Attribute der Klasse 'KeyInput'	
+*/
 	
 	private Player player;
 	private boolean [] keyDown = new boolean[2];
+	
+/*
+* Konstruktor der Klasse 'KeyInput'	
+*/
 	
 	public KeyInput() {
 		
@@ -29,6 +41,11 @@ public class KeyInput implements KeyListener {
 			}
 		}
 	}
+	
+/*
+*  Die Methode 'keyPressed' (Überschrieben von der Klasse 'KeyListener')
+*  reagiert, sobald eine Taste gedrückt wurde.
+*/
 	
 	public void keyPressed(KeyEvent e) {
 		
@@ -90,7 +107,11 @@ public class KeyInput implements KeyListener {
 		}
 	}
 
-
+/*
+*  Die Methode 'keyReleased' (Überschrieben von der Klasse 'KeyListener')
+*  reagiert, sobald eine Taste losgelassen wurde.
+*/
+	
 	public void keyReleased(KeyEvent e) {
 		
 		int key = e.getKeyCode();
@@ -160,10 +181,20 @@ public class KeyInput implements KeyListener {
 					
 	}
 
-
+/*
+*  Die Methode 'keyTyped' (Überschrieben von der Klasse 'KeyListener')
+*  reagiert, sobald eine Taste eingegeben wurde.
+*/
+	
+	
 	public void keyTyped(KeyEvent arg0) {
 		
 	}
+	
+/*
+* Ende der Klasse 'KeyInput'	
+*/
+	
 }
 
 

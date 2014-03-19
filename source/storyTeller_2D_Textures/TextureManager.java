@@ -4,6 +4,9 @@
 
 package storyTeller_2D_Textures;
 
+/*
+* Importierte Bibliotheken und Klassen
+*/
 
 import storyTeller_2D_Graphics.Spritesheet;
 import storyTeller_2D_Libraries.Spritesheets;
@@ -11,9 +14,16 @@ import storyTeller_2D_Libraries.Textures;
 
 public class TextureManager {
 
+/*
+* Attribute der Klasse 'TextureManager'	
+*/
+	
 	private Spritesheet spritesheet_blocks;
 	private Spritesheet spritesheet_characters;
-	
+		
+/*
+* Konstruktor der Klasse 'TextureManager'	
+*/
 	
 	public TextureManager () {
 		
@@ -25,6 +35,12 @@ public class TextureManager {
 		initTextures();
 		
 	}
+	
+/*
+* Die Methode 'initTextures' iniitiert die Texturen, indem sie die einzelnen Bilder
+* aus den zwischengespeicherten Spritesheets heraus schneidet und sie in die Klasse
+* 'Textures' einspeichert	
+*/
 	
 	private void initTextures() {
 		
@@ -53,6 +69,10 @@ public class TextureManager {
 		Textures.playerLeft[7] = spritesheet_characters.getSprite(8, 2);
 		Textures.playerLeft[8] = spritesheet_characters.getSprite(9, 2);
 		
-		
 	}
+	
+/*
+* Ende der Klasse 'TextureManager'
+*/
+	
 }

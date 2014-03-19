@@ -29,12 +29,10 @@ import storyTeller_Main.StoryTeller;
 public class LaborStart extends Location implements ActionListener {
 	
 /*
-* Attribute der Klasse LaborStart
+* Attribute der Klasse 'LaborStart'
 */
 
-	
 	private JLabel textWillkommen;
-	
 	private JTextArea textAusgabe;
 	
 	private JButton zurückMenü;
@@ -56,7 +54,8 @@ public class LaborStart extends Location implements ActionListener {
 	private static final long serialVersionUID = 2L;
 
 /*
-* Konstruktor der Klasse LaborStart
+* Konstruktor der Klasse 'LaborStart', nimmt einen String 'title', String 'name', 
+* einen String 'land', einen String 'stadt' und ein int 'spielStand' entgegen
 */
 	
 	public LaborStart (String title, String name, String land, String stadt, int spielStand) {
@@ -64,13 +63,13 @@ public class LaborStart extends Location implements ActionListener {
 		super(title, name, land, stadt, spielStand);
 	
 /*
-* Laden des Hintergrundbildes
+* Ladet das Hintergrundbild aus dem Zwischenspeicher der Klasse 'Images'
 */
 		
 		this.setContentPane(new JLabel(new ImageIcon(Images.hintergrundbild1)));
 
 /*
-*  Initiierung der von Location geerbten Attribute		
+* Initiierung der von 'Location' geerbten Attribute		
 */
 		
 		this.name = name;
@@ -164,14 +163,10 @@ public class LaborStart extends Location implements ActionListener {
 
 	
 /*
-* Main-Methode der Klasse LaborStart
+* Main-Methode der Klasse 'LaborStart'
 */
 	
 	public static void main(String[] args) {
-		
-/*
- * Erstellt ein neues Objekt von der Klasse LaborStart
- */
 		
 		LaborStart laborStart = new LaborStart("Story Teller", "New Eden Labor", "Amerika", "Nicht bekannt", 2);
 		laborStart.addWindowListener(
@@ -191,12 +186,19 @@ public class LaborStart extends Location implements ActionListener {
 		
 	}
 	
+/*
+* Die Methode 'cleanUp' säubert das Programm, bevor es beendet wird	
+*/
 	
 		private static void cleanUp () {
 			
 			AL.destroy();
 			
 		}
+		
+/*
+* Die Methode 'exit' beendet das Spiel, nachdem es vorher das Programm gesäubert hat
+*/		
 		
 		public static void exit() {
 			
@@ -206,27 +208,27 @@ public class LaborStart extends Location implements ActionListener {
 		}
 	
 /*
-* Überschriebene actionPerformed-Methode des ActionListeners
+* Überschriebene actionPerformed-Methode der Klasse 'ActionListener'
 */
 
 	public void actionPerformed(ActionEvent i) {
 
-	/*
-	 * Verlässt das Spiel und kehrt zum Hauptmenü zurück
-	 */
+/*
+* 		Verlässt das Spiel und kehrt zum Hauptmenü zurück
+*/
 		
 		if(i.getSource() == zurückMenü) {
 			this.setVisible(false);
 			StoryTeller.main(null);
 		}
 /*
- * Überschreibt den Wert der Variable 'speicherplatz' aus der Klasse Speicherplatz
- * mit dem Wert der von Lokation klasseneigenen Variable 'spielStand' und überschreibt
- * genauso die Variable 'kapitelJoseph' aus der Klasse 'Speicherplatz' und ersetzt diese. 
- * Danach wird die Methode 'spielSpeichern' aus der Klasse Speicherplatz aufgerufen, um das Spiel 
- * zu speichern 
- *
- */
+* 		Überschreibt den Wert der Variable 'speicherplatz' aus der Klasse Speicherplatz
+* 		mit dem Wert der von Lokation klasseneigenen Variable 'spielStand' und überschreibt
+* 		genauso die Variable 'kapitelJoseph' aus der Klasse 'Speicherplatz' und ersetzt diese. 
+* 		Danach wird die Methode 'spielSpeichern' aus der Klasse Speicherplatz aufgerufen, um das Spiel 
+* 		zu speichern 
+*
+*/
 		if (i.getSource() == spielSpeichern) {
 			
 			Speicherplatz.speicherplatz = spielStand;
@@ -239,9 +241,9 @@ public class LaborStart extends Location implements ActionListener {
 		}
 		
 /*
- * Das, was passiert, wenn der Knopf 'beginnen' gedrückt wird in Abhängigkeit der 
- * Spielvariablen 'verlauf', 'entscheidung1', 'entscheidung2', 'entscheidung3'		
- */
+* 		Das, was passiert, wenn der Knopf 'beginnen' gedrückt wird in Abhängigkeit der 
+* 		Spielvariablen 'verlauf', 'entscheidung1', 'entscheidung2', 'entscheidung3'		
+*/
 		
 		if (i.getSource() == beginnen) {
 			if(verlauf == 0) {
@@ -287,8 +289,8 @@ public class LaborStart extends Location implements ActionListener {
 		}
 		
 /*
-* Das, was passiert, wenn der Knopf 'weiter' gedrückt wird in Abhängigkeit der 
-* Spielvariablen 'verlauf', 'entscheidung1', 'entscheidung2', 'entscheidung3'		
+* 		Das, was passiert, wenn der Knopf 'weiter' gedrückt wird in Abhängigkeit der 
+* 		Spielvariablen 'verlauf', 'entscheidung1', 'entscheidung2', 'entscheidung3'		
 */	
 		
 		if (i.getSource() == weiter) {
@@ -530,8 +532,8 @@ public class LaborStart extends Location implements ActionListener {
 			}
 
 /*
-* Das, was passiert, wenn der Knopf 'weiter2' gedrückt wird in Abhängigkeit der 
-* Spielvariablen 'verlauf', 'entscheidung1', 'entscheidung2', 'entscheidung3'		
+* 		Das, was passiert, wenn der Knopf 'weiter2' gedrückt wird in Abhängigkeit der 
+* 		Spielvariablen 'verlauf', 'entscheidung1', 'entscheidung2', 'entscheidung3'		
 */	
 				
 			if(i.getSource() == weiter2) {
@@ -641,8 +643,8 @@ public class LaborStart extends Location implements ActionListener {
 		
 		
 /*
-* Das, was passiert, wenn der Knopf 'wahl1' gedrückt wird in Abhängigkeit der 
-* Spielvariablen 'verlauf', 'entscheidung1', 'entscheidung2', 'entscheidung3'		
+* 		Das, was passiert, wenn der Knopf 'wahl1' gedrückt wird in Abhängigkeit der 
+* 		Spielvariablen 'verlauf', 'entscheidung1', 'entscheidung2', 'entscheidung3'		
 */			
 
 		if (i.getSource() == wahl1) {
@@ -689,7 +691,6 @@ public class LaborStart extends Location implements ActionListener {
 							+ "\n"
 							+ "\n");
 				
-							
 							wahl1.setVisible(false);
 							wahl2.setVisible(false);
 							wahl3.setVisible(false);
@@ -707,8 +708,8 @@ public class LaborStart extends Location implements ActionListener {
 		}
 		
 /*
-* Das, was passiert, wenn der Knopf 'wahl2' gedrückt wird in Abhängigkeit der 
-* Spielvariablen 'verlauf', 'entscheidung1', 'entscheidung2', 'entscheidung3'	
+* 		Das, was passiert, wenn der Knopf 'wahl2' gedrückt wird in Abhängigkeit der 
+* 		Spielvariablen 'verlauf', 'entscheidung1', 'entscheidung2', 'entscheidung3'	
 */			
 		
 		if (i.getSource() == wahl2) {
@@ -754,7 +755,6 @@ public class LaborStart extends Location implements ActionListener {
 							+ "\n"
 							+ "\n");
 				
-							
 							wahl1.setVisible(false);
 							wahl2.setVisible(false);
 							wahl3.setVisible(false);
@@ -772,8 +772,8 @@ public class LaborStart extends Location implements ActionListener {
 		}
 		
 /*
-* Das, was passiert, wenn der Knopf 'wahl3' gedrückt wird in Abhängigkeit der 
-* Spielvariablen 'verlauf', 'entscheidung1', 'entscheidung2', 'entscheidung3'		
+* 		Das, was passiert, wenn der Knopf 'wahl3' gedrückt wird in Abhängigkeit der 
+* 		Spielvariablen 'verlauf', 'entscheidung1', 'entscheidung2', 'entscheidung3'		
 */	
 		
 		if (i.getSource() == wahl3) {
@@ -819,7 +819,6 @@ public class LaborStart extends Location implements ActionListener {
 							+ "\n"
 							+ "\n");
 				
-							
 							wahl1.setVisible(false);
 							wahl2.setVisible(false);
 							wahl3.setVisible(false);
@@ -837,8 +836,8 @@ public class LaborStart extends Location implements ActionListener {
 			}	
 			
 /*
- * Ende der Methode des ActionListeners		
- */
+* Ende der Methode des ActionListeners		
+*/
 		
 }
 	

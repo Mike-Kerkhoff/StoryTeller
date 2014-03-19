@@ -4,6 +4,10 @@
 
 package storyTeller_2D_Utilities.Files;
 
+/*
+* Importierte Bibliotheken und Klassen
+*/
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -11,8 +15,16 @@ import java.io.IOException;
 
 public class Textfile {
 
-	private static String line; 
+/*
+* Attribute der Klasse 'Textfile'	
+*/
 	
+	private static String line; 
+		
+/*
+* Die Methode 'readFile' nimmt einen String 'filepath' entgegen
+* und liest einen Satz aus einer Datei heraus	
+*/
 	
 	public static String readFile(String filepath) {
 		
@@ -32,6 +44,11 @@ public class Textfile {
 		return line;
 	}
 	
+/*
+* Die Methode 'writeFile' nimmt einen String 'filepath' und einen 
+* String 'Text' entgegen und schreibt einen Satz in eine Datei hinein	
+*/	
+	
 	public static void writeFile(String filepath, String text) {
 		
 		try {
@@ -48,5 +65,8 @@ public class Textfile {
 		}
 	}
 	
+/*
+* Ende der Klasse 'TextFile'	
+*/
 	
 }

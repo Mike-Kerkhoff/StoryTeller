@@ -4,6 +4,10 @@
 
 package storyTeller_2D_Utilities;
 
+/*
+* Importierte Bibliotheken und Klassen
+*/
+
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
@@ -19,9 +23,18 @@ import storyTeller_2D_Utilities.Files.Textfile;
 
 public class Updater {
 
+/*
+* Attribute der Klasse 'Updater'	
+*/
+	
 	private static String currentVersion;
 	private static String newVersion;
 	public static int update = 0;
+	
+/*
+* Die Methode 'checkForUpdate' sucht online auf GitHub nach einem Update
+* und ladet die neuen Dateien herunter, um sie zu updaten	
+*/
 	
 	public static void checkForUpdate(boolean isAuto) {
 		currentVersion = Textfile.readFile("./Version.txt");
@@ -38,7 +51,7 @@ public class Updater {
 			
 			if (!isAuto) {
 				
-				DoNotUpdate();
+				noUpdate();
 			}
 			
 			return;
@@ -89,12 +102,22 @@ public class Updater {
 		}
 	}
 	
-	private static void DoNotUpdate() {
+/*
+* Die Methode 'NoUpdate' öffnet ein JOptionPane mit der Nachricht, dass es
+* kein neues Update gibt	
+*/
+	
+	private static void noUpdate() {
 		
 		JOptionPane.showMessageDialog(null, "No Update found", "Updater", JOptionPane.INFORMATION_MESSAGE);
 		return;
 		
 	}
+	
+/*
+* Die Methode 'finishUpdate' öffnet ein JOptionPane mit der Nachricht, dass das Spiel
+* zu einer neueren Version geupdatet wurde und beendet anschließend das Spiel	
+*/	
 	
 	private static void finishUpdate() {
 		
@@ -103,4 +126,9 @@ public class Updater {
 		return;
 		
 	}
+	
+/*
+* Ende der Klasse 'Updater'	
+*/
+	
 }

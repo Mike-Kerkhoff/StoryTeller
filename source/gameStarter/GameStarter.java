@@ -43,7 +43,7 @@ public class GameStarter extends Canvas implements Runnable {
 	public static GameState state = GameState.LOADING;
 
 /*
-* Main-Methode	
+* Main-Methode der Klasse 'GameStarter'	
 */
 	
 	public static void main(String[] args) {
@@ -56,8 +56,8 @@ public class GameStarter extends Canvas implements Runnable {
 	}
 	
 /*
-* Gibt das zugehörtige Objekt 'starter' der	Klasse 'GameStarter
-* zurück
+* Die Methode 'getInstance' gibt das zugehörtige Objekt 'starter' 
+* der Klasse 'GameStarter'zurück
 */
 	
 	public static GameStarter getInstance() {
@@ -170,14 +170,14 @@ public class GameStarter extends Canvas implements Runnable {
 	
 	private void tick() {
 			
-			if (state == GameState.LOADING) {
+		if (state == GameState.LOADING) {
 				time --;
 				if (time <= 0) {
 					load();
 					time = 50;
-				}
+			}
 				
-			}	
+		}	
 			
 	}
 	

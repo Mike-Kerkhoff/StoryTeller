@@ -4,15 +4,12 @@
 
 package storyTeller_2D_Screens;
 
+/*
+* Importierte Bibliotheken und Klassen
+*/
+
 import java.awt.Color;
 import java.awt.Graphics;
-
-
-
-
-
-
-
 
 import storyTeller_2D_Libraries.Images;
 import storyTeller_2D_Libraries.Reference;
@@ -21,12 +18,18 @@ import storyTeller_2D_Graphics.Button;
 
 public class Menü {
 
+/*
+* Attribute der Klasse 'Menü'	
+*/
+	
 	public Button introBeginnen;
 	public Button spielSchließen;
 	public Button einstellungen;
 	public Button zurückMenü;
 	
-	
+/*
+* Konstruktor der Klasse 'Menü'	
+*/
 	public Menü () {
 		
 	int fillerY = 80;
@@ -37,7 +40,10 @@ public class Menü {
 	spielSchließen = new Button (Reference.CENTER_X - 100, fillerY + 240, 200, 50).setTitle("Beenden");
 	
 	}
-	
+
+/*
+* Render-Methode	
+*/
 
 	public void render(Graphics graphics) {
 		
@@ -52,6 +58,10 @@ public class Menü {
 
 		
 	}
-		
+	
+/*
+* Ende der Klasse 'Menü'	
+*/
+	
 }
 

@@ -4,6 +4,10 @@
 
 package storyTeller_2D_Input;
 
+/*
+* Importierte Bibliotheken und Klassen
+*/
+
 import java.awt.Rectangle;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -16,10 +20,19 @@ import storyTeller_Main.StoryTeller;
 
 public class MouseInput extends MouseAdapter {
 	
+/*
+* Attribute der Klasse 'MouseInput'	
+*/
+	
 	public static int MOUSE_X;
 	public static int MOUSE_Y;
 	public static Rectangle MOUSE = new Rectangle (1, 1, 1, 1);
 	private Menü menü = StoryTeller_2D.getInstance().getMenü();
+
+/*
+* Die Methode 'mouseClicked' (Überschrieben von der Klasse 'MouseAdapter') reagiert, 
+* sobald die Maus betätigt wird	
+*/
 	
 	public void mouseClicked(MouseEvent e) {
 		
@@ -82,6 +95,11 @@ public class MouseInput extends MouseAdapter {
 		}
 	}
 		
+/*
+* Die Methode 'mouseMoved' (Überschrieben von der Klasse 'MouseAdapter') reagiert, 
+* sobald die Maus bewegt wird	
+*/	
+	
 	public void mouseMoved(MouseEvent e) {
 		
 		MOUSE_X = e.getX();
@@ -90,5 +108,10 @@ public class MouseInput extends MouseAdapter {
 		MOUSE = new Rectangle(MOUSE_X, MOUSE_Y, 1, 1);
 		
 	}
+	
+/*
+* Ende der Klasse 'MouseInput'	
+*/
+	
 }
 

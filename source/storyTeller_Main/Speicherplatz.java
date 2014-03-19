@@ -18,18 +18,16 @@ import java.io.IOException;
 import storyTeller_Locations.LaborStart;
 import storyTeller_Locations.SchlafzimmerStart;
 
-
-
 public class Speicherplatz {
 	
 /*
-* Attribute der Klasse Speicherplatz:
+* Attribute der Klasse 'Speicherplatz':
 * 
-* 	Die Variable 'speicherplatz' dient als Speichervariable
+* 	Der int 'speicherplatz' dient als Speichervariable
 * 
-* 	Die Variable 'kapitelJoseph' dient als Speichervariable
+* 	Der int 'kapitelJoseph' dient als Speichervariable
 * 
-* 	Die Variable 'kapitelAlaine' dient als Speichervariable
+* 	Der int 'kapitelAlaine' dient als Speichervariable
 * 
 * 	Der String 'userName' dient als Erkennung des Benutzers
 */
@@ -40,30 +38,33 @@ public static int kapitelAlaine = 1;
 public static String userName;
 
 /*
-* Gibt die variable 'speicherplatz' zurück
+* Gibt den int 'speicherplatz' zurück
 */
 
 public static int getSpeicherplatz() {
 	
 	return speicherplatz;
+	
 	}
 
 /*
-* Gibt die variable 'kapitelJoseph' zurück
+* Gibt den int 'kapitelJoseph' zurück
 */
 
 public static int getKapitelJoseph() {
 	
 	return kapitelJoseph;
+	
 }
 
 /*
-* Gibt die variable 'KapitelAlaine' zurück
+* Gibt den int 'KapitelAlaine' zurück
 */
 
 public static int getKapitelAlaine() {
 	
 	return kapitelAlaine;
+	
 }
 
 /*
@@ -73,36 +74,40 @@ public static int getKapitelAlaine() {
 public static String getUserName() {
 	
 	return userName;
+	
 }
 
 /*
-* Setzt die Variable 'speicherplatz' wieder auf den Wert
+* Setzt den int 'speicherplatz' wieder auf den Wert
 * 0 zurück
 */
 
 public static void resetSpeicherplatz() {
 	
 	speicherplatz = 0;
+	
 }
 
 /*
-* Setzt die Variable 'kapitelJoseph' wieder auf den Grundwert
+* Setzt den int 'kapitelJoseph' wieder auf den Grundwert
 * 1 zurück
 */
 
 public static void resetKapitelJoseph() {
 	
 	kapitelJoseph = 1;
+	
 }
 
 /*
-* Setzt die Variable 'kapitelAlaine' wieder auf den Grundwert
+* Setzt den int 'kapitelAlaine' wieder auf den Grundwert
 * 1 zurück
 */
 
 public static void resetKapitelAlaine() {
 	
 	kapitelAlaine = 1;
+	
 }
 
 /*
