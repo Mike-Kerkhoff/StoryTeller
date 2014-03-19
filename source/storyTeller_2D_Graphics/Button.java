@@ -1,11 +1,11 @@
-/*
+/**
 *@Autor Mike Kerkhoff ©2014 
 */
 
 package storyTeller_2D_Graphics;
 
-/*
-* Importierte Bibliotheken und Klassen
+/**
+* Importierte Bibliotheken und Klassen.
 */
 
 import java.awt.Color;
@@ -18,26 +18,38 @@ import java.awt.Rectangle;
 import storyTeller_2D_Input.MouseInput;
 import storyTeller_2D_Libraries.Reference;
 
-@SuppressWarnings("serial")
+/**
+* Die Klasse 'Button' ist eine Unterklasse von Rectangle und bildet
+* das Grundgerüst für jegliche Buttons für den StoryTeller2D.
+*/
+
 public class Button extends Rectangle {
 
-/*
-* Attribute der Klassen 'Button'	
+/**
+* Eine zufällig generierte 'serialVersionUID'.
+*/
+	
+	private static final long serialVersionUID = 1L;
+
+/**
+* Der String 'title' stellt den Titel unseres Buttons dar.	
 */
 	
 	private String title;
 
-/*
- * 1. Konstruktor der Klasse 'Button' 	
- */
+/**
+* Konstruktor der Klasse 'Button'.
+*/
 	
 	public Button() {
 		super();
 		
 	}
 
-/*
-* 2. Konstruktor der Klasse 'Button', nimmt ein Rechteck 'r' entgegen 	
+/**
+* Konstruktor der Klasse 'Button', nimmt ein Rechteck 'r' entgegen. 
+* 
+* @param r : das Rechteck des Objektes	
 */
 
 	public Button(Rectangle r) {
@@ -45,8 +57,10 @@ public class Button extends Rectangle {
 
 	}
 
-/*
-* 3. Konstruktor der Klasse 'Button', nimmt einen Punkt 'p' entgegen
+/**
+* Konstruktor der Klasse 'Button', nimmt einen Punkt 'p' entgegen.
+* 
+* @param p : ein Punkt des Objektes
 */
 	
 	public Button(Point p) {
@@ -54,8 +68,10 @@ public class Button extends Rectangle {
 
 	}
 
-/*
-* 4. Konstruktor der Klasse 'Button', nimmt eine Dimension 'd' entgegen 	
+/**
+* Konstruktor der Klasse 'Button', nimmt eine Dimension 'd' entgegen.
+* 
+* @param d : die Dimension des Objektes	
 */
 	
 	public Button(Dimension d) {
@@ -63,9 +79,12 @@ public class Button extends Rectangle {
 
 	}
 
-/*
-* 5. Konstruktor der Klasse 'Button', nimmt ein int 'width' und ein int 'height'
-* entgegen 	
+/**
+* Konstruktor der Klasse 'Button', nimmt einen integer 'width' und einen 
+* integer 'height' entgegen. 
+* 
+* @param width : die Breite des Objektes
+* @param height : die Höhe des Objektes	
 */
 	
 	public Button(int width, int height) {
@@ -73,9 +92,12 @@ public class Button extends Rectangle {
 
 	}
 
-/*
-* 6. Konstruktor der Klasse 'Button', nimmt einen Punkt 'p' und eine Dimension 'd'
-* entgegen 	
+/**
+* Konstruktor der Klasse 'Button', nimmt einen Punkt 'p' und eine Dimension 'd'
+* entgegen. 	
+* 
+* @param p : ein Punkt des Objektes
+* @param d : eine Dimension des Objektes
 */
 	
 	public Button(Point p, Dimension d) {
@@ -83,9 +105,14 @@ public class Button extends Rectangle {
 
 	}
 
-/*
-* 7. Konstruktor der Klasse 'Button', nimmt ein int 'x', ein int 'y', ein int 'width'
-* und ein int 'height' entgegen	
+/**
+* Konstruktor der Klasse 'Button', nimmt einen integer 'x', einen integer 'y', 
+* einen integer 'width' und einen integer 'height' entgegen.
+* 
+* @param x : der x-Wert des Objektes
+* @param y : der y-Wert des Objektes
+* @param width : die Breite des Objektes
+* @param height : die Höhe des Objektes	
 */
 	
 	public Button(int x, int y, int width, int height) {
@@ -93,16 +120,22 @@ public class Button extends Rectangle {
 
 	}
 
-/*
-* Gibt 'title' zurück 	
-*/
+/**
+ * Die Methode 'getTitle' gibt den Titel des Buttons zurück.
+ * 
+ * @return title : der Titel unseres Buttons
+ */
 	
 	public String getTitle() {
 		return title;
 	}
 
-/*
-* Nimmt einen String 'title' entgegen und übernimmt diesen
+/**
+* Die Methode 'setTitle' nimmt einen String 'title' entgegen, übernimmt diesen
+* und gibt letztendlich noch den Button zurück.
+* 
+* @param title : der Titel unseres Buttons
+* @return ein verändertes Objekt der Klasse 'Button'
 */
 	
 	public Button setTitle(String title) {
@@ -110,9 +143,12 @@ public class Button extends Rectangle {
 		return this;
 	}
 	
-/*
-* Die Methode 'drawButton' zeichnet einen Button. Sie nimmt ein Graphics 'graphics'
-* und ein int 'offset' entgegen.	
+/**
+* Die Methode 'drawButton' zeichnet einen Button. Dazu nimmt sie ein Objekt der Klasse 
+* 'Graphics' und einen integer 'offset' entgegen.	
+* 
+*  @param graphics : ein Objekt der Klasse 'Graphics'
+*  @param offset : eine Hilfsvariable für das Zeichnen von Buttons
 */
 	
 	public void drawButton(Graphics graphics, int offset) {
@@ -138,9 +174,5 @@ public class Button extends Rectangle {
 		graphics.drawString(title, xTitle, yTitle);
 		
 	}
-
-/*
-* Ende der Klasse 'Button'
-*/	
 	
 }

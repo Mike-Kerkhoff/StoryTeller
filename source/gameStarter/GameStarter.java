@@ -1,4 +1,4 @@
-/*
+/**
 *@Autor Mike Kerkhoff ©2014 
 */
 
@@ -36,61 +36,61 @@ public class GameStarter extends Canvas implements Runnable {
 	private static final long serialVersionUID = 10L;
 	
 /**
-* Objekt der Klasse 'GameStarter'.
+* Das Objekt 'starter' ist ein Objekt der Klasse 'GameStarter'.
 */
 	
 	private static GameStarter starter = new GameStarter();
 	
 /**
-* Breite der Klasse 'GameStarter'.	
+* Die Integer-Konstante 'WIDTH' ist die Breite der Klasse 'GameStarter'.	
 */
 	
 	public static final int WIDTH = 600;
 	
 /**
-* Höhe der Klasse 'GameStarter'.	
+* Die Integer-Konstante 'HEIGHT' ist die Höhe der Klasse 'GameStarter'.	
 */
 	
 	public static final int HEIGHT = 500;
 	
 /**
-* Titel der Klasse 'GameStarter'.	
+* Die String-Konstante 'TITLE' ist der Titel der Klasse 'GameStarter'.	
 */
 	
 	public static final String TITLE = "StoryTeller: Loading";
 	
 /**
-* Boolische Variable, die besagt, ob das Spiel am Laufen ist.
+* Der Boolean 'running' besagt, ob das Spiel am Laufen ist.
 */
 	
 	private static boolean running = false;
 	
 /**
-* Thread der Klasse 'GameStarter'.
+* Der Thread 'gameStarter' ist der Haupt-Thread des Spiels.
 */
 	
 	private Thread gameStarter;
 	
 /**
-* Hilfvariable für das Laden der Resourcen.
+* Der Integer 'time' ist eine Hilfsvariable für das Laden der Resourcen.
 */
 	private int time = 100;
 	
 /**
-* Hilfvariable für das Laden der Resourcen.
+* Der Integer 'counter' ist eine Hilfvariable für das Laden der Resourcen.
 */
 	
 	private int counter = 0;
 	
 /**
-* Startet das Spiel in diesem Zustand
+* Der GameState 'state' verwaltet den Status des Spiels.
 */
 	
 	public static GameState state = GameState.LOADING;
 
 /**
- * Main-Methode der Klasse 'GameStarter'
- */
+* Die Main-Methode der Klasse 'GameStarter'.
+*/
 	
 	public static void main(String[] args) {
 		
@@ -103,9 +103,9 @@ public class GameStarter extends Canvas implements Runnable {
 	
 /**
 * Die Methode 'getInstance' gibt Zugang auf die nicht statischen 
-* Elemente der Klasse 'GameStarter' 
+* Elemente der Klasse 'GameStarter'. 
 * 
-* @return das Objekt der Klasse 'GameStarter'
+* @return starter : ein Objekt der Klasse 'GameStarter'
 */
 	
 	public static GameStarter getInstance() {
@@ -115,8 +115,8 @@ public class GameStarter extends Canvas implements Runnable {
 	}
 	
 /**
-* Die Methode 'run' startet die Spiel-Schleife, in der die Tick- und 
-* Render-Methode aufgerufen werden.
+* Die Methode 'run' startet die Spiel-Schleife, in der sowohl die Tick- und 
+* Render-Methode, wie auch die Methode 'init' aufgerufen werden.
 */
 	
 	public void run() {
@@ -262,7 +262,7 @@ public class GameStarter extends Canvas implements Runnable {
 	
 /**
 * Die Methode 'start' startet das Spiel, falls es nicht
-* bereits begonnen wurde, und beginnt den Thread 'gameStarter'.	
+* bereits begonnen wurde, und beginnt in diesem Fall auch den Thread 'gameStarter'.	
 */
 	
 	public synchronized void start () {

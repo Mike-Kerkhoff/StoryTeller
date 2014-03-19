@@ -1,14 +1,15 @@
-/*
+/**
 *@Autor Mike Kerkhoff ©2014 
 */
 
 package storyTeller_2D_Entities;
 
-/*
-* Importierte Bibliotheken und Klassen
+/**
+* Importierte Bibliotheken und Klassen.
 */
 
 import java.awt.Graphics;
+
 import java.util.ArrayList;
 
 import storyTeller_2D_Core.CoreObject;
@@ -20,41 +21,87 @@ import storyTeller_2D_Main.StoryTeller_2D;
 import storyTeller_2D_Objects.Block;
 import storyTeller_2D_Textures.TextureManager;
 
+/**
+ * Die Klasse 'Spieler' ist eine Unterklasse von CoreObjekt und verwaltet 
+ * die Bewegungen und das Verhalten des Spielers.
+ */
+
 public class Player extends CoreObject {
 	
-/*
-* Attribute der Klasse 'Player'	
+/**
+* Die ArrayList 'objects' beinhaltet alle Objekte des Spiels.
 */
 	
-	private static ArrayList<CoreObject> blocks = StoryTeller_2D.getInstance().getController().getObjects();
+	private static ArrayList<CoreObject> objects = StoryTeller_2D.getInstance().getController().getObjects();
+	
+/**
+* Der Boolean 'falling' gibt an, ob der Spieler am Fallen ist. 
+*/
 	
 	private Boolean falling = true;
+	
+/**
+* Der Boolean 'jumping' gibt an, ob der Spieler am Springen ist.
+*/
+	
 	private Boolean jumping = false;
+	
+/**
+* Der Boolean 'moving' gibt an, ob der Spieler sich am bewegen ist.
+*/
+	
 	private Boolean moving = false;
+	
+/**
+* Die Animation 'animationRight' kümmert sich um die Bewegung und Animation des 
+* Spielers nach rechts.	
+*/
+	
 	private Animation animationRight;
+	
+/**
+* Die Animation 'animationLeft' kümmert sich um die Bewegung und Animation des 
+* Spielers nach links.	
+*/	
 	private Animation animationLeft;
+	
+/**
+* Die Direction 'direction' gibt an, in welche Richtung sich der Spieler bewegt.
+*/
 	
 	private Direction direction = Direction.FORWARD;
 	
-	private float gravity = 0.5f;
+/**
+ * Der Integer 'gravity' gibt die Graviation des Spieles an.	
+ */
 	
-/*
-* Konstruktor der Klasse 'Player', welcher ein int 'x', ein int 'y', ein int 'id'
-* und einen TextureManager 'texture' entgegen nimmt	
+	private int gravity = 1;
+	
+/**
+* Konstruktor der Klasse 'Player', nimmt einen Integer 'x', 
+* einen Integer 'y', einen Integer 'id' und einen TextureManager 
+* 'texture' entgegen.
+* 
+* @param x : der x-Wert des Spielers
+* @param y : der y-Wert des Spielers
+* @param id : die ID des Spielers
+* @param texture : der TextureManager des Spielers	
 */
 	
-	public Player (float x, float y, int id, TextureManager texture) {
+	public Player (int x, int y, int id, TextureManager texture) {
 		
 		super(x, y, id, texture);
-		this.setSize(100, 97);
+		this.setSize(50, 100);
 		
 		animationRight = new Animation(8, Textures.playerRight);
 		animationLeft = new Animation(8, Textures.playerLeft);
 		
 	}
 	
-/*
-* Gibt zurück, ob der Spieler gerade am Springen ist.
+/**
+* Die Methode 'isJumping' gibt zurück, ob der Spieler gerade am Springen ist.
+* 
+* @return jumping : der Boolean gibt an, ob der Spieler am Springen ist
 */
 	
 	public Boolean isJumping() {
@@ -63,8 +110,11 @@ public class Player extends CoreObject {
 		
 	}
 
-/*
-* Nimmt einen Boolean 'jumping' entgegen und übernimmt diesen	
+/**
+* Die Methode 'setJumping' nimmt einen Boolean 'jumping' entgegen und übernimmt 
+* diesen.
+* 
+* @param jumping : der Boolean gibt an, ob der Spieler gerade am Springen ist	
 */
 	
 	public void setJumping(Boolean jumping) {
@@ -73,8 +123,10 @@ public class Player extends CoreObject {
 		
 	}
 
-/*
-* Gibt zurück, ob sich der Spieler gerade bewegt. 
+/**
+* Die Methode 'getMoving' gibt zurück, ob sich der Spieler gerade bewegt. 
+* 
+* @return moving : der Boolean gibt an, ob sich der Spieler gerade bewegt
 */
 	
 	public Boolean getMoving() {
@@ -82,8 +134,11 @@ public class Player extends CoreObject {
 		return moving;
 	}
 
-/*
-*  Nimmt einen Boolean 'moving' entgegen und übernimmt diesen
+/**
+* Die Methode 'setMoving' nimmt einen Boolean 'moving' entgegen und übernimmt 
+* diesen.
+* 
+* @param moving : der Boolean gibt an, ob sich der Spieler gerade bewegt
 */
 	
 	public void setMoving(Boolean moving) {
@@ -91,8 +146,12 @@ public class Player extends CoreObject {
 		this.moving = moving;
 	}
 	
-/*
-* Nimmt eine Direction 'direction' entgegen und übernimmt diese	
+/**
+* Die Methode 'setDirection' nimmt eine Direction 'direction' entgegen und übernimmt 
+* diese.
+* 
+* @param direction : die Direction gibt an, in welche Richtung sich der Spieler 
+* gerade bewegt	
 */
 	
 	public void setDirection(Direction direction) {
@@ -100,8 +159,12 @@ public class Player extends CoreObject {
 		this.direction = direction;
 	}
 	
-/*
-* Gibt zurück, in welche Richtung sich der Spieler gerade bewegt	
+/**
+* Die Methode 'getDirection' gibt zurück, in welche Richtung sich der Spieler
+* gerade bewegt.
+* 
+* @return direction : die Direction gibt an, in welche Richtung sich der Spieler 
+* gerade bewegt	
 */
 	
 	public Direction getDirection() {
@@ -109,8 +172,8 @@ public class Player extends CoreObject {
 		return direction;
 	}
 
-/*
-* Tick-Methode (überschrieben von der Überklasse 'CoreObject')
+/**
+* Die Methode 'tick' updatet alle Bewegungen und Handlungen des Spielers.
 */
 	
 	public void tick() {
@@ -121,6 +184,7 @@ public class Player extends CoreObject {
 		checkCollision();
 		
 		if (moving) {
+			
 			if (direction == Direction.RIGHT) {
 				
 				animationRight.runAnimation();
@@ -134,8 +198,8 @@ public class Player extends CoreObject {
 			
 	}
 
-/*
-* Render-Methode (Überschrieben von der Oberklasse 'CoreObject')
+/**
+* Die Methode 'render' zeichnet den Spieler auf den Bildschirm.
 */
 	
 	public void render (Graphics graphics) {
@@ -178,9 +242,9 @@ public class Player extends CoreObject {
 		}
 	}
 
-/*
-* Lässt den Spieler fallen anhand der Gravitation, falls dieser
-* nicht am Springen ist	
+/**
+* Die Methode 'falling' lässt den Spieler, anhand des integers 'gravity', 
+* fallen, falls dieser nicht am Springen ist.	
 */
 	
 	public void falling() {
@@ -192,14 +256,14 @@ public class Player extends CoreObject {
 		}
 	}
 	
-/*
-* Überprüft, ob der Spieler in Berührung mit Blöcken ist und 
-* setzt die Collision fest	
+/**
+* Die Methode 'checkCollision' überprüft, ob der Spieler in Berührung mit 
+* irgendwelchen Spielobjekten ist und setzt die Collision fest.	
 */
 	
 	private void checkCollision() {
 		
-		for (CoreObject obj : blocks) {
+		for (CoreObject obj : objects) {
 			
 			if (obj instanceof Block) {
 				
@@ -222,12 +286,12 @@ public class Player extends CoreObject {
 					y = obj.getY() + obj.getHeight();
 				}
 				
-				if (getRightBounds().intersects(obj.getLeftBounds()) && obj.getId() != Object_IDs.BLOCK_FLOOR1) {
+				if (getRightBounds().intersects(obj.getLeftBounds()) && obj.getID() != Object_IDs.BLOCK_FLOOR1) {
 					
 					x = obj.getX() - width;
 				}	
 				
-				if(getLeftBounds().intersects(obj.getRightBounds()) && obj.getId() != Object_IDs.BLOCK_FLOOR1) {
+				if(getLeftBounds().intersects(obj.getRightBounds()) && obj.getID() != Object_IDs.BLOCK_FLOOR1) {
 					
 					x = obj.getX() + obj.getWidth();	
 					
@@ -238,9 +302,5 @@ public class Player extends CoreObject {
 		}
 		
 	}
-	
-/*
-* Ende der Klasse 'Player'
-*/
 	
 }

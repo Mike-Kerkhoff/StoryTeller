@@ -34,7 +34,7 @@ public class Camera {
 		this.y = y;
 		
 		for (CoreObject obj : StoryTeller_2D.getInstance().getController().getObjects()) {
-			if (obj.getId() == Object_IDs.PLAYER) {
+			if (obj.getID() == Object_IDs.PLAYER) {
 				player = (Player) obj;
 			}
 		}

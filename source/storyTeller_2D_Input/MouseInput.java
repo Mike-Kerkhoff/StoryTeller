@@ -52,7 +52,7 @@ public class MouseInput extends MouseAdapter {
 					
 					break;
 					
-				case BEGINNEN:
+				case SPIELEN:
 					
 					break;
 					
@@ -61,7 +61,7 @@ public class MouseInput extends MouseAdapter {
 					if (rectangle.intersects(menü.introBeginnen)) {
 						
 						StoryTeller_2D.getInstance().chapterOne.loadChapter();
-						StoryTeller_2D.state = GameState.BEGINNEN;
+						StoryTeller_2D.state = GameState.SPIELEN;
 						
 					}
 					

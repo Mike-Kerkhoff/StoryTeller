@@ -19,7 +19,7 @@ public class Block extends CoreObject {
 * Konstruktor der Klasse 'Block', nimmt ein float 'x', ein float ' y',
 * ein int 'id' und ein BufferedImage 'image' entgegen
 */
-	public Block(float x, float y, int id, BufferedImage image) {
+	public Block(int x, int y, int id, BufferedImage image) {
 		super(x, y, id, image);
 	
 		this.setSize(50, 50);
@@ -39,7 +39,7 @@ public class Block extends CoreObject {
 	
 	public void render(Graphics graphics) {
 		
-		graphics.drawImage(image, (int)x, (int)y, null);
+		graphics.drawImage(image, x, y, null);
 	}
 	
 /*

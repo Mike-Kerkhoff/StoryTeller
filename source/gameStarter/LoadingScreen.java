@@ -1,4 +1,4 @@
-/*
+/**
 *@Autor Mike Kerkhoff ©2014 
 */
 
@@ -23,30 +23,30 @@ import storyTeller_Main.StoryTeller;
 public class LoadingScreen {
 
 /**
-* Breite des Ladebalkens.
+* Der Integer 'width' ist die Breite des Ladebalkens.
 */
 	
 	private static int width = 398; 
 	
 /**
-* Anzahl der zu ladenden Resourcen.	
+* Der Integer 'numResources' ist die Anzahl der zu ladenden Resourcen.	
 */
 	
 	private static int numResources = 6;
 	
 /**
-* Anzahl der bereits geladenen Resourcen.	
+* Der Integer 'loadStatus' ist die Anzahl der bereits geladenen Resourcen.	
 */
 	
 	private static int loadStatus = 0;
 	
 /**
-* Teilt den Ladebalken durch die Anzahl der zu ladenden Resourcen.	
+* Der Integer 'loadAdd' teilt den Ladebalken durch die Anzahl der zu ladenden Resourcen.	
 */
 	private static int loadAdd = width / numResources;
 	
 /**
-* Anzuzeigender Text, während die Resourcen geladen werden.	
+* Der String 'message' ist der anzuzeigender Text, während die Resourcen geladen werden.	
 */
 	
 	private static String message = "Loading Resources";
@@ -91,7 +91,7 @@ public class LoadingScreen {
 * entgegen und übernimmt diesen, um den Text des Ladebildschirms
 * zu updaten.
 * 
-* @param message : der anzuzeigende Text
+* @param message : der anzuzeigende Text des LoadScreens
 */
 	
 	public static void setMessage(String message) {

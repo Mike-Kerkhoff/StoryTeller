@@ -31,7 +31,7 @@ public class Renderer {
 			
 			break;
 		
-		case BEGINNEN:
+		case SPIELEN:
 			
 			StoryTeller_2D.getInstance().getController().render(graphics);
 			
@@ -76,7 +76,7 @@ public class Renderer {
 				
 				break;
 			
-			case BEGINNEN:
+			case SPIELEN:
 				
 				break;
 			

@@ -173,7 +173,7 @@ public class StoryTeller_2D extends Canvas implements Runnable {
 	
 	private void tick() {
 		
-		if (state == GameState.BEGINNEN) {
+		if (state == GameState.SPIELEN) {
 			
 			controller.tick();
 			camera.tick();

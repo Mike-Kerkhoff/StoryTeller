@@ -1,11 +1,11 @@
-/*
+/**
 *@Autor Mike Kerkhoff ©2014 
 */
 
 package storyTeller_2D_Core;
 
-/*
-* Importierte Bibliotheken und Klassen
+/**
+* Importierte Bibliotheken und Klassen.
 */
 
 import java.awt.Graphics;
@@ -14,42 +14,101 @@ import java.awt.image.BufferedImage;
 
 import storyTeller_2D_Textures.TextureManager;
 
+/**
+* Die abstrakte Klasse 'CoreObject' bildet das Grundgerüst
+* für alle Objekte im Spiel.
+*/
+
 public abstract class CoreObject {
 
-/*
-* Attribute der abstrakten Klasse 'CoreObject'	
+/**
+* Der Integer 'x' ist die x-Koortinate des Objektes.
 */
 	
-	protected float x;
-	protected float y;
-	protected float velX;
-	protected float velY;
+	protected int x;
+	
+/**
+* Der Integer 'y' ist die y-Koordinate des Objektes.
+*/
+	
+	protected int y;
+	
+/**
+* Der Integer 'velX' ist die Geschwindigkeit des Objektes in x-Richtung.
+*/
+	
+	protected int velX;
+	
+/**
+* Der Integer 'velY' ist die Geschwindigkeit des Objektes in y-Richtung.
+*/
+	
+	protected int velY;
+	
+/**
+* Der Integer 'id' ist die ID des Objektes.	
+*/
+	
 	protected int id;
+	
+/**
+* Der Integer 'width' ist die Breite des Objektes.	
+*/
+	
 	protected int width;
+	
+/**
+* Der Integer 'height' ist die Höhe des Objektes.
+*/
+	
 	protected int height;
+		
+/**
+* Der TextureManager 'texture' ist der TextureManager des Objektes.
+*/
 	
 	protected TextureManager texture;
-	protected BufferedImage image;
 	
-/*
-* 1. Konstruktor der Klasse CoreObject, welcher ein int 'x', ein int 'y' ein int 'id' 
-* und einen TextureManager 'texture' entgegen nimmt. 
+/**
+* Das BufferedImage 'image' ist das Bild des Objektes.	
 */
 	
-	public CoreObject(float x, float y, int id, TextureManager texture) {
+	protected BufferedImage image;
+	
+/**
+* Konstruktor der Klasse 'CoreObject', nimmt einen Integer 'x', 
+* einen Integer 'y' einen Integer 'id' und einen TextureManager 'texture' 
+* entgegen.
+* 
+* @param x : die x-Koordinate des Objektes
+* @param y : die y-Koordinate des Objektes
+* @param id : die ID des Objektes
+* @param texture : der TextureManager des Objektes
+*/
+	
+	public CoreObject(int x, int y, int id, TextureManager texture) {
 		
 		this.x = x;
 		this.y = y;
 		this.id = id;
 		this.texture = texture;
+		
 	}
 	
-/*
-* 2. Konstruktor der Klasse CoreObject, welcher ein int 'x', ein int 'y' ein int 'id', 
-* ein int 'width', ein int 'height' und einen TextureManager 'texture' entgegen nimmt. 	
+/**
+* Konstruktor der Klasse 'CoreObject', welcher einen integer 'x', 
+* einen integer 'y' einen integer 'id', einen integer 'width', 
+* einen integer 'height' und einen TextureManager 'texture' entgegen nimmt.
+* 
+* @param x : die x-Koordinate des Objektes
+* @param y : die y-Koordinate des Objektes
+* @param id : die ID des Objektes
+* @param width : die Breite des Objektes
+* @param height : die Höhe des Objektes
+* @param texture : der TextureManager des Objektes 	
 */
 	
-	public CoreObject (float x, float y, int id, int width, int height, TextureManager texture) {
+	public CoreObject (int x, int y, int id, int width, int height, TextureManager texture) {
 		
 		this.x = x;
 		this.y = y;
@@ -57,131 +116,178 @@ public abstract class CoreObject {
 		this.width = width;
 		this.height = height;
 		this.texture = texture;
+		
 	}
 
-/*
-* 3. Konstruktor der Klasse CoreObject, welcher ein int 'x', ein int 'y' ein int 'id'
-* und ein BufferedImage 'image' entgegen nimmt. 
+/**
+* Konstruktor der Klasse 'CoreObject', welcher einen integer 'x', 
+* einen integer 'y', einen integer 'id' und ein BufferedImage 'image' 
+* entgegen nimmt. 
+* 
+* @param x : die x-Koordinate des Objektes
+* @param y : die y-Koordinate des Objektes
+* @param id : die ID des Objektes
+* @param image : das Bild des Objektes
 */	
 	
-public CoreObject (float x, float y, int id, BufferedImage image) {
+public CoreObject (int x, int y, int id, BufferedImage image) {
 		
 		this.x = x;
 		this.y = y;
 		this.id = id;
 		this.image = image;
+		
 	}
 	
 
-/*
-* Gibt 'x' zurück
+/**
+* Die Methode 'getX' gibt die x-Koordinate des Objektes zurück.
+* 
+* @return x : die x-Koordinate des Objektes
 */
 
-	public float getX() {
+	public int getX() {
+		
 		return x;
+		
 	}
 
-/*
-* Gibt 'y' zurück	
+/**
+* Die Methode 'getY' gibt die y-Koordinate des Objektes zurück.
+* 
+* @return y : die y-Koordinate des Objektes
 */
 	
-	public float getY() {
+	public int getY() {
 		
 		return y;
+		
 	}
 
-/*
-* Gibt 'velX' zurück	
+/**
+* Die Methode 'getVelX' gibt die Geschwindigkeit in x-Richtung des Objektes zurück.
+* 
+* @return velX : die Geschwindigkeit in x-Richtung des Objektes
 */
 	
-	public float getVelX() {
+	public int getVelX() {
 		
 		return velX;
+		
 	}
 
-/*
-* Gibt 'velY' zurück	
+/**
+* Die Methode 'getVelY' gibt die Geschwindigkeit in y-Richtung des Objektes zurück.
+* 
+* @return velY : die Geschwindigkeit in y-Richtung des Objektes
 */
 	
-	public float getVelY() {
+	public int getVelY() {
 		
 		return velY;
+		
 	}
 	
-/*
-* Gibt 'id' zurück	
+/**
+* Die Methode 'getID' gibt die ID des Objektes zurück.
+* 
+* @return id : die ID des Objektes
 */
 	
-	public int getId() {
+	public int getID() {
 		
 		return id;
+		
 	}
 	
-/*
-* Gibt 'width' zurück	
+/**
+* Die Methode 'getWidth' gibt die Breite des Objektes zurück.
+* 
+* @return width : die Breite des Objektes
 */
 	
 	public int getWidth() {
 		
 		return width;
+		
 	}
 
-/*
-* Gibt 'height' zurück	
+/**
+* Die Methode 'getHeight' gibt die Höhe des Objektes zurück.
+* 
+* @return height : die Höhe des Objektes
 */
 	
 	public int getHeight() {
 		
 		return height;
+		
 	}
 	
-/*
-* Nimmt einen Wert für 'x' entgegen und übernimmt diesen
+/**
+* Die Methode 'setX' nimmt einen Wert für 'x' entgegen und übernimmt diesen.
+* 
+* @param x : die x-Koordinate des Objektes
 */
 	
-	public void setX(float x) {
+	public void setX(int x) {
 		
 		this.x = x;
+		
 	}
 
-/*
-* Nimmt einen Wert für 'y' entgegen und übernimmt diesen
+/**
+* Die Methode 'setY' nimmt einen Wert für 'y' entgegen und übernimmt diesen.
+* 
+* @param y : die y-Koordinate des Objektes
 */	
 	
-	public void setY(float y) {
+	public void setY(int y) {
 		
 		this.y = y;
+		
 	}
 
-/*
-* Nimmt einen Wert für 'VelX' entgegen und übernimmt diesen
+/**
+* Die Methode 'setVelX' nimmt einen Wert für 'VelX' entgegen und übernimmt diesen.
+* 
+* @param velX : die Geschwindigkeit in x-Richtung des Objektes
 */	
 	
-	public void setVelX(float velX) {
+	public void setVelX(int velX) {
 		
 		this.velX = velX;
+		
 	}
 
-/*
-* Nimmt einen Wert für 'VelY' entgegen und übernimmt diesen
+/**
+* Die Methode 'setVelY' nimmt einen Wert für 'VelY' entgegen und übernimmt diesen.
+* 
+* @param velY : die Geschwindigkeit in y-Richtung des Objektes
 */	
 	
-	public void setVelY(float velY) {
+	public void setVelY(int velY) {
 		
 		this.velY = velY;
+		
 	}
 
-/*
-* Nimmt einen Wert für 'width' entgegen und übernimmt diesen
+/**
+* Die Methode 'setWidth' nimmt einen Wert für 'width' entgegen und übernimmt diesen.
+* 
+* @param width : die Breite des Objektes
 */	
 	
 	public void setWidth(int width) {
 		
 		this.width = width;
+		
 	}
 
-/*
-* Nimmt einen Wert für 'height' entgegen und übernimmt diesen
+/**
+* Die Methode 'setHeight' nimmt einen Wert für 'height' entgegen und übernimmt diesen.
+* 
+* @param height : die Höhe des Objektes
 */	
 	
 	public void setHeight(int height) {
@@ -189,71 +295,81 @@ public CoreObject (float x, float y, int id, BufferedImage image) {
 		this.height = height;
 	}
 	
-/*
-* Nimmt sowohl einen Wert für 'width' wie auch für 'height' entgegen,
-* um die größte des Objektes festzulegen 	
+/**
+* Die Methode 'setSize' nimmt sowohl einen Wert für 'width' wie auch für 'height' entgegen,
+* um die Größe des Objektes festzulegen.
+* 
+* @param width : die Breite des Objektes
+* @param height : die Höhe des Objektes 	
 */
 	
 	public void setSize(int width, int height) {
 		
 		this.width = width;
 		this.height = height;
+		
 	}
 
-/*
-* Abstrakte Tick-Methode	
+/**
+* Die Methode 'tick' updatet die Objekte des Spieles.	
 */
 	
 	public abstract void tick();
 	
-/*
-* Abstrakte Render-Methode	
+/**
+* Die Methode 'render' zeichnet die Objekte auf den Bildschirm.
+* 
+* @param graphics : ein Objekt der Klasse 'Graphics'	
 */
 	
 	public abstract void render(Graphics graphics);
 	
-/*
-* Gibt die oberen Grenzen des Objektes zurück	
+/**
+* Die Methode 'getTopBounds' gibt die oberen Grenzen des Objektes zurück.
+* 
+* @return Rectangle : die oberen Grenzen des Objektes	
 */
 	
 	public Rectangle getTopBounds(){
 		
-		return new Rectangle((int)x, (int)y, width, height);
+		return new Rectangle(x, y, width, height);
 		
 	}
 	
-/*
-* Gibt die unteren Grenzen des Objektes zurück	
+/**
+* Die Methode 'getBottomBounds' gibt die unteren Grenzen des Objektes zurück.
+* 
+* @return Rectangle : die unteren Grenzen des Objektes	
 */	
 	
 	public Rectangle getBottomBounds() {
 		
-		return new Rectangle((int)x, (int)y + (height -8), width, 6);
+		return new Rectangle(x, y + (height -8), width, 6);
 		
 	}
 	
-/*
-* Gibt die rechten Grenzen des Objektes zurück	
+/**
+* Die Methode 'getRightBounds' gibt die rechten Grenzen des Objektes zurück.
+* 
+* @return Rectangle : die rechten Grenzen des Objektes	
 */	
 	
 	public Rectangle getRightBounds() {
 		
-		return new Rectangle((int)x + (width-8), (int)y, 6, height);
+		return new Rectangle(x + (width-8), y, 6, height);
 		
 	}
 	
-/*
-* Gibt die linken Grenzen des Objektes zurück	
-*/	
+/**
+* Die Methode 'getLeftBounds' gibt die linken Grenzen des Objektes zurück.
+* 
+* @return Rectangle : die linken Grenzen des Objektes	
+*/
 	
 	public Rectangle getLeftBounds() {
 		
-		return new Rectangle((int)x, (int)y, 6, height);
+		return new Rectangle(x, y, 6, height);
 		
 	}
-
-/*
-* Ende der Klasse 'CoreObject'
-*/	
 	
 }

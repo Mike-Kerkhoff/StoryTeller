@@ -4,37 +4,63 @@
 
 package storyTeller_2D_Enums;
 
+/**
+* Die Klasse 'GameState' verwaltet alle Zustände des StoryTellers.
+*/
+
 public enum GameState {
 	
-/*
-* Enum-Attribute des Enum 'GameState' für den
-* GameStarter	
+/**
+* Der StoryTeller befindet sich im Ladezustand.
 */
 	
 	LOADING, 
 	
-/*
-* Enum-Attribute des Enum 'GameState' für den
-* StoryTeller 1.0
+/**
+* In diesem Zustand ist der StoryTeller 1.0 aktiv.
 */
-	STORYTELLER,
-	Kapitel1_Alaine,
-	Kapitel1_Joseph, 
 	
-/*
-* Enum-Attribute des Enum 'GameState' für den 
-* StoryTeller2D	
+	STORYTELLER,
+	
+/**
+* In diesem Zustand ist der StoryTeller2D aktiv.	
 */
 	STORYTELLER_2D,
+	
+/**
+* In diesem Zustand wird das Menü des StoryTellers2D aufgerufen.
+*/
+	
 	MENÜ,
-	BEGINNEN,
+	
+/**
+* In diesem Zustand wird das Spiel des StoryTeller2D begonnen.	
+*/
+	
+	SPIELEN,
+	
+/**
+* In diesem Zustand wird wieder zum StoryTeller 1.0 gewechselt.	
+*/
+	
 	ZURÜCKHAUPTMENÜ,
-	BEENDEN,
+	
+/**
+* In diesem Zustand wird der StoryTeller2D pausiert.	
+*/
+	
 	PAUSE,
+	
+/**
+* In diesem Zustand werden die Einstellungen des StoryTeller2D abgerufen.	
+*/
+	
 	EINSTELLUNGEN,
-
-/*
-* Ende des Enum 'GameState'
-*/	
+	
+/**
+* In diesem Zustand wird der StoryTeller augenblicklich beendet.
+*/
+		
+	BEENDEN;	
 	
 }

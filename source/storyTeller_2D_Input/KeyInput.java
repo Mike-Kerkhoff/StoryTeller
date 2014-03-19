@@ -34,7 +34,7 @@ public class KeyInput implements KeyListener {
 		
 		for (int k = 0; k < StoryTeller_2D.getInstance().getController().getObjects().size(); k++) {
 			
-			if (StoryTeller_2D.getInstance().getController().getObjects().get(k).getId() == Object_IDs.PLAYER) {
+			if (StoryTeller_2D.getInstance().getController().getObjects().get(k).getID() == Object_IDs.PLAYER) {
 				
 				player = (Player) StoryTeller_2D.getInstance().getController().getObjects().get(k);
 				
@@ -57,7 +57,7 @@ public class KeyInput implements KeyListener {
 			
 			break;
 			
-		case BEGINNEN:
+		case SPIELEN:
 			
 				if (key == KeyEvent.VK_UP && !player.isJumping()) {
 					player.setJumping(true);
@@ -118,7 +118,7 @@ public class KeyInput implements KeyListener {
 		
 		switch(StoryTeller_2D.state) {
 		
-		case BEGINNEN:
+		case SPIELEN:
 					
 		if (key == KeyEvent.VK_UP) {
 			

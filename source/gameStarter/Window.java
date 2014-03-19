@@ -1,4 +1,4 @@
-/*
+/**
 *@Autor Mike Kerkhoff ©2014 
 */
 
@@ -23,7 +23,7 @@ import storyTeller_Main.StoryTeller;
 public class Window {
 	
 /**
-* Fenster für die Klasse 'GameStarter'.		
+* Das JFrame 'frame' dient als das Fenster für die Klasse 'GameStarter'.		
 */
 	
 	private static JFrame frame;
@@ -51,6 +51,7 @@ public class Window {
 	public static void addGameStarter(GameStarter starter) {
 		
 		frame.add(starter);
+		
 	}
 
 /**
@@ -89,17 +90,20 @@ public class Window {
 	public void setTitle(String title) {
 		
 		frame.setTitle(title);
+		
 	}
 
 /**
 * Die Methode 'getInstance' gibt das JFrame-Objekt der Klasse 'Window'
 * zurück.
 * 
-* @return das JFrame-Objekt der Klasse 'Window'
+* @return frame : ein JFrame-Objekt der Klasse 'Window'
 */
 
 	public static JFrame getInstance() {
+		
 		return frame;
+		
 	}
 
 }
