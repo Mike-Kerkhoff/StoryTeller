@@ -23,14 +23,14 @@ public class ImageLoader {
 * Attribute der Klasse 'ImageLoader'	
 */
 	
-	private BufferedImage image;
+	private static BufferedImage image;
 
 /*
 * Die Methode 'loadImage' nimmt einen String 'imagePath' entgegen
 * und übernimmt diesen, um das BufferedImage zu laden	
 */
 	
-	public BufferedImage loadImage (String imagePath) {
+	public static BufferedImage loadImage (String imagePath) {
 	
 	LoadingScreen.setMessage("Loading images from " + Reference.IMAGE_LOCATION);	
 		

@@ -8,9 +8,7 @@ package storyTeller_2D_Graphics;
 * Importierte Bibliotheken und Klassen.
 */
 
-import storyTeller_2D_Core.CoreObject;
 import storyTeller_2D_Entities.Player;
-import storyTeller_2D_Libraries.Object_IDs;
 import storyTeller_2D_Main.StoryTeller_2D;
 
 /**
@@ -45,21 +43,13 @@ public class Camera {
 * @param y : die y-Koordinate des Objektes
 */
 	
-	public Camera(int x, int y) {
+	public Camera(Player player, int x, int y) {
 		
 		this.x = x;
 		this.y = y;
-		
-		for (CoreObject obj : StoryTeller_2D.getInstance().getController().getObjects()) {
-			
-			if (obj.getID() == Object_IDs.PLAYER) {
+		this.player = player;
 				
-				player = (Player) obj;
-				
-			}
 			
-		}
-		
 	}
 	
 /**
@@ -119,6 +109,7 @@ public class Camera {
 		
 		x += ((-player.getX() + StoryTeller_2D.WIDTH / 2) - x) * 0.0275f;
 		y = (-player.getY() + StoryTeller_2D.HEIGHT / 2);
+		
 	}
 	
 }

@@ -23,8 +23,6 @@ public class ResourceLoader {
 * Attribute der Klasse 'ResourceLoader'	
 */
 	
-	private static ImageLoader imageLoader = new ImageLoader();
-	private static SpritesheetLoader spritesheetLoader = new SpritesheetLoader();
 	private static ChapterLoader chapterLoader = new ChapterLoader();
 	
 /*
@@ -34,7 +32,7 @@ public class ResourceLoader {
 	
 	public static void preload() {
 		
-		Images.hintergrundbild2 =  imageLoader.loadImage("background2.jpg");
+		Images.hintergrundbild2 =  ImageLoader.loadImage("background2.jpg");
 		
 	}
 	
@@ -46,10 +44,10 @@ public class ResourceLoader {
 	public static void loadImages() {
 		
 			
-			Images.hintergrundbild1 =  imageLoader.loadImage("background1.jpg");
-			Images.hintergrundbild2 =  imageLoader.loadImage("background2.jpg");
-			Images.hintergrundbild3 =  imageLoader.loadImage("background3.jpg");
-			Images.hintergrundbild4 =  imageLoader.loadImage("background4.jpg");
+			Images.hintergrundbild1 =  ImageLoader.loadImage("background1.jpg");
+			Images.hintergrundbild2 =  ImageLoader.loadImage("background2.jpg");
+			Images.hintergrundbild3 =  ImageLoader.loadImage("background3.jpg");
+			Images.hintergrundbild4 =  ImageLoader.loadImage("background4.jpg");
 		
 	}
 	
@@ -60,8 +58,8 @@ public class ResourceLoader {
 	
 	public static void loadSpritesheets() {
 		
-		Spritesheets.spritesheet_blocks = spritesheetLoader.loadImage("Tiles-Spritesheet 500x500.png");
-		Spritesheets.spritesheet_player = spritesheetLoader.loadImage("Charakter-Spritesheet 450x900.png");
+		Spritesheets.spritesheet_blocks = SpritesheetLoader.loadImage("Tiles-Spritesheet 500x500.png");
+		Spritesheets.spritesheet_player = SpritesheetLoader.loadImage("Charakter-Spritesheet 450x900.png");
 		
 	}
 	

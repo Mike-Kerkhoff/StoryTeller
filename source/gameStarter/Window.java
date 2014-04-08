@@ -29,38 +29,13 @@ public class Window {
 	private static JFrame frame;
 
 /**
-* Die Methode 'initWindow' nimmt einen Titel entgegen und iniitiert das JFrame 
-* und somit auch das Fenster für die Klasse 'GameStarter'.
-* 
-* @param title : der Titel für das Fenster
-*/
-
-	public static void initWindow(String title) {
-		
-		frame = new JFrame(title);
-		
-	}
-
-/**
-* Die Methode 'addGameStarter' nimmt ein Objekt der Klasse 'GameStarter' entgegen und 
-* fügt den GameStarter zum JFrame hinzu.
-* 
-*  @param starter : ein Objekt der Klasse 'GameStarter' 
-*/
-
-	public static void addGameStarter(GameStarter starter) {
-		
-		frame.add(starter);
-		
-	}
-
-/**
 * Die Methode 'createWindow' baut das Fenster auf und definiert die verschiedenen 
 * Parameter.
 */
 
-	public static void createWindow() {
+	public static void createWindow(GameStarter starter, String title) {
 		
+		frame = new JFrame(title);
 		frame.setResizable(false);
 		frame.setSize(StoryTeller.WIDTH, StoryTeller.HEIGHT);
 		frame.addWindowListener(
@@ -75,6 +50,7 @@ public class Window {
 		frame.setFocusable(true);
 		frame.setLocationRelativeTo(null);
 		frame.setResizable(false);
+		frame.add(starter);
 		frame.setVisible(true);
 		frame.pack();
 		

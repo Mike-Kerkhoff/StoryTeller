@@ -23,33 +23,13 @@ public class Window {
 	private static JFrame frame;
 
 /*
-* Die Methode 'initWindow' iniitiert das JFrame 
-* und das Ladefenster
-*/
-
-	public static void initWindow(String title) {
-		
-		frame = new JFrame(title);
-		
-	}
-
-/*
-* Die Methode 'addStoryTeller' fügt den StoryTeller_2D
-* zum JFrame hinzu 
-*/
-
-	public static void addStoryTeller(StoryTeller_2D storyTeller) {
-		
-		frame.add(storyTeller);
-	}
-
-/*
 * Die Methode 'createWindow' baut das Fenster auf
 * und definiert die verschiedenen Parameter
 */
 
-	public static void createWindow() {
+	public static void createWindow(StoryTeller_2D storyTeller, String title) {
 		
+		frame = new JFrame(title);
 		frame.setResizable(false);
 		frame.setSize(StoryTeller_2D.WIDTH, StoryTeller_2D.HEIGHT);
 		frame.addWindowListener(
@@ -64,6 +44,7 @@ public class Window {
 		frame.setFocusable(true);
 		frame.setLocationRelativeTo(null);
 		frame.setResizable(false);
+		frame.add(storyTeller);
 		frame.setVisible(true);
 		frame.pack();
 		

@@ -23,14 +23,14 @@ public class SpritesheetLoader {
 * Attribute der Klasse 'SpritesheetLoader'	
 */
 	
-	private BufferedImage spritesheet;
+	private static BufferedImage spritesheet;
 
 /*
 * Die Methode 'loadImage' nimmt einen String 'imagePath' entgegen
 * und übernimmt diesen, um das BufferedImage zu laden	
 */	
 	
-	public BufferedImage loadImage (String imagePath) {
+	public static BufferedImage loadImage (String imagePath) {
 			
 	LoadingScreen.setMessage("Loading textures from " + Reference.SPRITESHEET_LOCATION);
 		

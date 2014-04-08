@@ -16,18 +16,13 @@ import java.awt.image.BufferStrategy;
 
 import org.lwjgl.openal.AL;
 
-import storyTeller_2D_Controller.Controller;
-import storyTeller_2D_Entities.Player;
+
 import storyTeller_2D_Enums.GameState;
 import storyTeller_2D_Graphics.Camera;
-import storyTeller_2D_Graphics.Renderer;
 import storyTeller_2D_Graphics.Window;
 import storyTeller_2D_Input.KeyInput;
 import storyTeller_2D_Input.MouseInput;
-import storyTeller_2D_Libraries.Object_IDs;
 import storyTeller_2D_Screens.Menü;
-import storyTeller_2D_Textures.TextureManager;
-import storyTeller_2D_World.Chapter;
 
 public class StoryTeller_2D extends Canvas implements Runnable {
 
@@ -43,18 +38,24 @@ public class StoryTeller_2D extends Canvas implements Runnable {
 	private static boolean running = false;
 	public static final String TITLE = "Story Teller 2D";
 	
-
-	private static StoryTeller_2D storyTeller_2D = new StoryTeller_2D();
 	public static GameState state = GameState.MENÜ;
 	
 	private Thread gameRunner;
-	private Controller controller;
-	private Renderer renderer;
 	private Menü menü;
 	private MouseInput mouse;
-	private TextureManager tex;
-	public Chapter chapterOne;
 	private Camera camera; 
+	
+public StoryTeller_2D () {
+	
+	menü = new Menü();
+	mouse = new MouseInput();
+	camera = new Camera (0, 0);
+	
+	this.addMouseListener(mouse);
+	this.addMouseMotionListener(mouse);
+	this.addKeyListener(new KeyInput());
+	
+}
 	
 /*
 * Main-Methode der Klasse 'StoryTeller_2D'	
@@ -62,64 +63,23 @@ public class StoryTeller_2D extends Canvas implements Runnable {
 	
 	public static void main(String[] args) {
 			
-			Window.initWindow(TITLE);
-			Window.addStoryTeller(storyTeller_2D);
-			Window.createWindow();
-			storyTeller_2D.start();
-	}
-	
-/*
-* Die Methode 'getMenü' gibt das zugehörtige Objekt 'menü' der
-* Klasse 'StoryTeller_2D' zurück
-*/
-	
-	public Menü getMenü() {
-		
-		return menü;
-	}
-	
-/*
-* Die Methode 'getInstance' gibt das zugehörtige Objekt 'storyTeller_2D' der
-* Klasse 'StoryTeller_2D' zurück
-*/
-	
-	public static StoryTeller_2D getInstance() {
-		
-		return storyTeller_2D;
-	}
-	
-/*
-* Die Methode 'getController' gibt das zugehörtige Objekt 'controller' der
-* Klasse 'StoryTeller_2D' zurück
-*/	
-	
-	public Controller getController() {
-		
-		return controller;
-	}
-	
-/*
-* Die Methode 'getTextureManager' gibt das zugehörtige Objekt 'tex' der
-* Klasse 'StoryTeller_2D' zurück
-*/	
-		
-	public TextureManager getTextureManager() {
+		StoryTeller_2D storyTeller_2D = new StoryTeller_2D();
+		Window.createWindow(storyTeller_2D, TITLE);
+		storyTeller_2D.start();
 			
-		return tex;
-			
-	}	
+	}
 	
+
 /*
 * Überschriebene Run-Methode der Klasse 'Runnable'
 */
 	
 	public void run() {
 	
-		
-		init();
+		requestFocus();
 	
 		long lastTime = System.nanoTime();
-		final Double amountOfTicks = 60D;
+		double amountOfTicks = 60D;
 		double ns = 1_000_000_000 / amountOfTicks;
 		double delta = 0;
 		
@@ -148,24 +108,6 @@ public class StoryTeller_2D extends Canvas implements Runnable {
 * Init-Methode	
 */
 	
-	public void init () {
-		
-		controller = new Controller();
-		renderer = new Renderer();
-		menü = new Menü();
-		mouse = new MouseInput();
-		tex = new TextureManager();
-		chapterOne = new Chapter(1);
-		camera = new Camera (0, 0);
-		
-		this.addMouseListener(mouse);
-		this.addMouseMotionListener(mouse);
-		this.addKeyListener(new KeyInput());
-		
-		
-		controller.addObject(new Player(50, 0, Object_IDs.PLAYER, tex));
-		
-	}
 
 /*
 * Tick-Methode	
@@ -175,7 +117,6 @@ public class StoryTeller_2D extends Canvas implements Runnable {
 		
 		if (state == GameState.SPIELEN) {
 			
-			controller.tick();
 			camera.tick();
 			
 		}
@@ -201,23 +142,37 @@ public class StoryTeller_2D extends Canvas implements Runnable {
 			graphics.setColor(new Color(6, 0, 40));
 			graphics.fillRect(0, 0, getWidth(), getHeight());
 		
-			renderer.renderBackground(graphics);
+/*			
+			renderBackground(graphics);
 			
 			if (camera != null) {
 	
 			graphics2D.translate(camera.getX(), camera.getY());
 		
 			}
-			renderer.renderForeground(graphics);
+			
+			renderForeground(graphics);
 			
 			if (camera != null) {
 			graphics2D.translate(-camera.getX(), -camera.getY());
 		
 			}
-			
+*/			
 			bufferStrategy.show();
 			graphics.dispose();
 	}
+	
+
+	/*private void renderForeground(Graphics graphics) {
+	
+		
+	}
+
+
+	private void renderBackground(Graphics graphics) {
+	
+	}
+*/
 	
 /*
 * Die Methode 'start' startet das Spiel, falls es nicht
@@ -235,6 +190,7 @@ public class StoryTeller_2D extends Canvas implements Runnable {
 			running = true;
 		
 		gameRunner = new Thread(this);
+		
 		gameRunner.start();
 		
 	}
@@ -243,7 +199,7 @@ public class StoryTeller_2D extends Canvas implements Runnable {
 * Die Methode 'cleanUp' säubert das Programm, bevor es beendet wird	
 */	
 	
-	private static void cleanUp () {
+	private void cleanUp () {
 		
 		AL.destroy();
 		
@@ -255,7 +211,10 @@ public class StoryTeller_2D extends Canvas implements Runnable {
 	
 	public static void exit() {
 		
-		storyTeller_2D.stop();
+		
+		storyTeller_2D.cleanUp();
+		
+		System.exit(0);
 		
 	}
 	
@@ -281,6 +240,16 @@ public class StoryTeller_2D extends Canvas implements Runnable {
 		}
 		
 		cleanUp();
+		
+		try {
+			
+			gameRunner.join();
+			
+		} catch (InterruptedException e) {
+			
+		}
+		
+		storyTeller_2D.cleanUp();
 		System.exit(1);
 		
 		}

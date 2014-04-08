@@ -12,7 +12,6 @@ import java.awt.Graphics;
 
 import java.util.ArrayList;
 
-import storyTeller_2D_Core.CoreObject;
 import storyTeller_2D_Enums.Direction;
 import storyTeller_2D_Graphics.Animation;
 import storyTeller_2D_Libraries.Object_IDs;
@@ -26,19 +25,13 @@ import storyTeller_2D_Textures.TextureManager;
  * die Bewegungen und das Verhalten des Spielers.
  */
 
-public class Player extends CoreObject {
-	
-/**
-* Die ArrayList 'objects' beinhaltet alle Objekte des Spiels.
-*/
-	
-	private static ArrayList<CoreObject> objects = StoryTeller_2D.getInstance().getController().getObjects();
+public class Player {
 	
 /**
 * Der Boolean 'falling' gibt an, ob der Spieler am Fallen ist. 
 */
 	
-	private Boolean falling = true;
+	private Boolean falling = false;
 	
 /**
 * Der Boolean 'jumping' gibt an, ob der Spieler am Springen ist.
@@ -88,10 +81,8 @@ public class Player extends CoreObject {
 * @param texture : der TextureManager des Spielers	
 */
 	
-	public Player (int x, int y, int id, TextureManager texture) {
-		
-		super(x, y, id, texture);
-		this.setSize(50, 100);
+	public Player (int x, int y, int id) {
+		super(x, y, id);
 		
 		animationRight = new Animation(8, Textures.playerRight);
 		animationLeft = new Animation(8, Textures.playerLeft);
@@ -204,7 +195,7 @@ public class Player extends CoreObject {
 	
 	public void render (Graphics graphics) {
 		
-		if (!moving) {
+/*		if (!moving) {
 			if (direction == Direction.FORWARD) {
 				
 			graphics.drawImage(Textures.playerStandingFront, (int)x, (int)y, null);
@@ -238,9 +229,8 @@ public class Player extends CoreObject {
 				animationLeft.drawAnimation(graphics, x, y);
 				
 				}
-		
+*/		
 		}
-	}
 
 /**
 * Die Methode 'falling' lässt den Spieler, anhand des integers 'gravity', 
@@ -263,44 +253,7 @@ public class Player extends CoreObject {
 	
 	private void checkCollision() {
 		
-		for (CoreObject obj : objects) {
-			
-			if (obj instanceof Block) {
-				
-				
-				if(getBottomBounds().intersects(obj.getTopBounds())) {
-					
-						velY = 0;
-						y = obj.getY() - height+5;
-						jumping = false;
-						falling = false;
-
-				} else 
-					
-					falling = true;
-				
-				if(getTopBounds().intersects(obj.getBottomBounds())) {
-					
-					falling();
-					
-					y = obj.getY() + obj.getHeight();
-				}
-				
-				if (getRightBounds().intersects(obj.getLeftBounds()) && obj.getID() != Object_IDs.BLOCK_FLOOR1) {
-					
-					x = obj.getX() - width;
-				}	
-				
-				if(getLeftBounds().intersects(obj.getRightBounds()) && obj.getID() != Object_IDs.BLOCK_FLOOR1) {
-					
-					x = obj.getX() + obj.getWidth();	
-					
-				}
-				
-			}
-			
-		}
 		
-	}
 	
 }
+	}

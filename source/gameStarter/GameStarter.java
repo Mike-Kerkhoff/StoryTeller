@@ -94,9 +94,7 @@ public class GameStarter extends Canvas implements Runnable {
 	
 	public static void main(String[] args) {
 		
-		Window.initWindow(TITLE);
-		Window.addGameStarter(starter);
-		Window.createWindow();
+		Window.createWindow(starter, TITLE);
 		starter.start();
 	
 	}
@@ -155,6 +153,7 @@ public class GameStarter extends Canvas implements Runnable {
 	public void init () {
 		
 		ResourceLoader.preload();
+		
 	}
 		
 /**
@@ -210,6 +209,7 @@ public class GameStarter extends Canvas implements Runnable {
 				Window.getInstance().setVisible(false);
 				StoryTeller.main(null);
 				return;
+				
 		}
 			
 	}
@@ -221,8 +221,11 @@ public class GameStarter extends Canvas implements Runnable {
 	private void tick() {
 			
 		if (state == GameState.LOADING) {
+			
 				time --;
+				
 				if (time <= 0) {
+					
 					load();
 					time = 50;
 			}
@@ -284,7 +287,7 @@ public class GameStarter extends Canvas implements Runnable {
 * Die Methode 'cleanUp' säubert das Programm, bevor es beendet wird.	
 */
 	
-	private static void cleanUp () {
+	private void cleanUp () {
 		
 		AL.destroy();
 		
@@ -296,6 +299,7 @@ public class GameStarter extends Canvas implements Runnable {
 	
 	public static void exit() {
 		
+		starter.cleanUp();
 		starter.stop();
 		
 	}
@@ -321,7 +325,7 @@ public class GameStarter extends Canvas implements Runnable {
 			
 			}
 			
-			cleanUp();
+			starter.cleanUp();
 			System.exit(1);
 			
 	}
