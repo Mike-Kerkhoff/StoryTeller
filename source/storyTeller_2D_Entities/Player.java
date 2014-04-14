@@ -14,7 +14,6 @@ import java.util.ArrayList;
 
 import storyTeller_2D_Enums.Direction;
 import storyTeller_2D_Graphics.Animation;
-import storyTeller_2D_Libraries.Object_IDs;
 import storyTeller_2D_Libraries.Textures;
 import storyTeller_2D_Main.StoryTeller_2D;
 import storyTeller_2D_Objects.Block;
@@ -65,12 +64,6 @@ public class Player {
 	private Direction direction = Direction.FORWARD;
 	
 /**
- * Der Integer 'gravity' gibt die Graviation des Spieles an.	
- */
-	
-	private int gravity = 1;
-	
-/**
 * Konstruktor der Klasse 'Player', nimmt einen Integer 'x', 
 * einen Integer 'y', einen Integer 'id' und einen TextureManager 
 * 'texture' entgegen.
@@ -81,8 +74,8 @@ public class Player {
 * @param texture : der TextureManager des Spielers	
 */
 	
-	public Player (int x, int y, int id) {
-		super(x, y, id);
+	public Player (int x, int y) {
+		super(x, y);
 		
 		animationRight = new Animation(8, Textures.playerRight);
 		animationLeft = new Animation(8, Textures.playerLeft);
@@ -171,7 +164,6 @@ public class Player {
 		x += velX;
 		y += velY;
 		
-		falling();
 		checkCollision();
 		
 		if (moving) {
@@ -232,19 +224,6 @@ public class Player {
 */		
 		}
 
-/**
-* Die Methode 'falling' lässt den Spieler, anhand des integers 'gravity', 
-* fallen, falls dieser nicht am Springen ist.	
-*/
-	
-	public void falling() {
-		
-		if(falling) {
-			
-			velY += gravity;
-			
-		}
-	}
 	
 /**
 * Die Methode 'checkCollision' überprüft, ob der Spieler in Berührung mit 

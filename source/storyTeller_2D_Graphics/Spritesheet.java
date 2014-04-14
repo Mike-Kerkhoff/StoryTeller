@@ -18,8 +18,9 @@ public class Spritesheet {
 */
 	
 	private BufferedImage sheet;
-	private int width;
-	private int height;
+	private static int width;
+	private static int height;
+	private int [] pixels;
 	
 /*
 * 1. Konstruktor der Klasse 'Spritesheet', nimmt ein BufferedImage 'sheet' 
@@ -31,10 +32,12 @@ public class Spritesheet {
 		this.sheet = sheet;
 		this.width = width;
 		this.height = width;
+
+		
 	}
 	
 /*
-* 1. Konstruktor der Klasse 'Spritesheet', nimmt ein BufferedImage 'sheet',  
+* 2. Konstruktor der Klasse 'Spritesheet', nimmt ein BufferedImage 'sheet',  
 * ein int 'width' und ein int 'height' entgegen	
 */	
 	
@@ -43,6 +46,7 @@ public class Spritesheet {
 		this.sheet = sheet;
 		this.width = width;
 		this.height = height;
+		
 	}
 
 /*

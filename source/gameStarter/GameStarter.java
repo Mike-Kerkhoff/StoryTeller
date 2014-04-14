@@ -15,7 +15,6 @@ import java.awt.image.BufferStrategy;
 
 import org.lwjgl.openal.AL;
 
-import storyTeller_2D_Enums.GameState;
 import storyTeller_2D_Utilities.ResourceLoader;
 import storyTeller_2D_Utilities.Updater;
 import storyTeller_Main.StoryTeller;
@@ -81,12 +80,6 @@ public class GameStarter extends Canvas implements Runnable {
 */
 	
 	private int counter = 0;
-	
-/**
-* Der GameState 'state' verwaltet den Status des Spiels.
-*/
-	
-	public static GameState state = GameState.LOADING;
 
 /**
 * Die Main-Methode der Klasse 'GameStarter'.
@@ -220,8 +213,6 @@ public class GameStarter extends Canvas implements Runnable {
 	
 	private void tick() {
 			
-		if (state == GameState.LOADING) {
-			
 				time --;
 				
 				if (time <= 0) {
@@ -232,7 +223,6 @@ public class GameStarter extends Canvas implements Runnable {
 				
 		}	
 			
-	}
 	
 /**
 * Die Methode 'render' zeichnet die Objekte der Klasse 'GameStarter' 
@@ -252,12 +242,8 @@ public class GameStarter extends Canvas implements Runnable {
 			Graphics graphics = bufferStrategy.getDrawGraphics();
 			graphics.setColor(new Color(6, 0, 40));
 			graphics.fillRect(0, 0, getWidth(), getHeight());
-		
-		if (state == GameState.LOADING) {
 			
 			LoadingScreen.render(graphics);
-				
-			}
 		
 			bufferStrategy.show();
 			graphics.dispose();
@@ -300,7 +286,7 @@ public class GameStarter extends Canvas implements Runnable {
 	public static void exit() {
 		
 		starter.cleanUp();
-		starter.stop();
+		System.exit(0);
 		
 	}
 	
@@ -326,7 +312,7 @@ public class GameStarter extends Canvas implements Runnable {
 			}
 			
 			starter.cleanUp();
-			System.exit(1);
+			System.exit(0);
 			
 	}
 	

@@ -11,18 +11,19 @@ package storyTeller_2D_Main;
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.awt.image.BufferStrategy;
+import java.awt.image.BufferedImage;
+import java.awt.image.DataBufferInt;
+
+import javax.swing.JFrame;
 
 import org.lwjgl.openal.AL;
 
-
-import storyTeller_2D_Enums.GameState;
-import storyTeller_2D_Graphics.Camera;
-import storyTeller_2D_Graphics.Window;
-import storyTeller_2D_Input.KeyInput;
-import storyTeller_2D_Input.MouseInput;
-import storyTeller_2D_Screens.Menü;
+import storyTeller_2D_Graphics.Screen;
+import storyTeller_2D_Graphics.Spritesheet;
+import storyTeller_2D_Libraries.Spritesheets;
 
 public class StoryTeller_2D extends Canvas implements Runnable {
 
@@ -35,25 +36,41 @@ public class StoryTeller_2D extends Canvas implements Runnable {
 	
 	public static final int WIDTH = 600;
 	public static final int HEIGHT = 500;
-	private static boolean running = false;
 	public static final String TITLE = "Story Teller 2D";
 	
-	public static GameState state = GameState.MENÜ;
-	
+	private JFrame frame;
 	private Thread gameRunner;
-	private Menü menü;
-	private MouseInput mouse;
-	private Camera camera; 
+	private Screen screen;
+	
+	
+	private BufferedImage screenImage = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
+	
+	private int [] pixels = ((DataBufferInt)screenImage.getRaster().getDataBuffer()).getData();
+	
+	private static boolean running = false;
 	
 public StoryTeller_2D () {
 	
-	menü = new Menü();
-	mouse = new MouseInput();
-	camera = new Camera (0, 0);
+	screen = new Screen (WIDTH, HEIGHT);
 	
-	this.addMouseListener(mouse);
-	this.addMouseMotionListener(mouse);
-	this.addKeyListener(new KeyInput());
+	frame = new JFrame(TITLE);
+	frame.setSize(WIDTH, HEIGHT);
+	frame.setResizable(false);
+	frame.addWindowListener(
+			
+			new WindowAdapter() {
+				public void windowClosing(WindowEvent e) {
+					exit();
+				}
+			}
+			);
+	
+	frame.setFocusable(true);
+	frame.setLocationRelativeTo(null);
+	frame.setResizable(false);
+	frame.add(this);
+	frame.setVisible(true);
+	frame.pack();	
 	
 }
 	
@@ -64,7 +81,7 @@ public StoryTeller_2D () {
 	public static void main(String[] args) {
 			
 		StoryTeller_2D storyTeller_2D = new StoryTeller_2D();
-		Window.createWindow(storyTeller_2D, TITLE);
+		
 		storyTeller_2D.start();
 			
 	}
@@ -82,6 +99,7 @@ public StoryTeller_2D () {
 		double amountOfTicks = 60D;
 		double ns = 1_000_000_000 / amountOfTicks;
 		double delta = 0;
+		Boolean shouldRender = false;
 		
 		while (running) {
 			
@@ -93,11 +111,15 @@ public StoryTeller_2D () {
 				
 				tick();
 				delta--;
+				shouldRender = true;
 				
 			}
 			
+			if (shouldRender) {
+				
 			 render();
 			 
+			}
 		}
 		
 		stop();
@@ -114,14 +136,9 @@ public StoryTeller_2D () {
 */
 	
 	private void tick() {
-		
-		if (state == GameState.SPIELEN) {
 			
-			camera.tick();
-			
-		}
-		
 	}
+		
 
 /*
 * Render-Methode	
@@ -136,43 +153,21 @@ public StoryTeller_2D () {
 			return;
 			
 		}
+			screen.clear();
+			screen.render();
+			for (int i = 0; i < pixels.length; i++) {
+				pixels[i] = screen.pixels[i];
+			}
 		
 			Graphics graphics = bufferStrategy.getDrawGraphics();
-			Graphics2D graphics2D = (Graphics2D) graphics;
 			graphics.setColor(new Color(6, 0, 40));
 			graphics.fillRect(0, 0, getWidth(), getHeight());
+			graphics.drawImage(screenImage, 0, 0, getWidth(), getHeight(), null);
 		
-/*			
-			renderBackground(graphics);
-			
-			if (camera != null) {
-	
-			graphics2D.translate(camera.getX(), camera.getY());
-		
-			}
-			
-			renderForeground(graphics);
-			
-			if (camera != null) {
-			graphics2D.translate(-camera.getX(), -camera.getY());
-		
-			}
-*/			
 			bufferStrategy.show();
 			graphics.dispose();
 	}
 	
-
-	/*private void renderForeground(Graphics graphics) {
-	
-		
-	}
-
-
-	private void renderBackground(Graphics graphics) {
-	
-	}
-*/
 	
 /*
 * Die Methode 'start' startet das Spiel, falls es nicht
@@ -199,7 +194,7 @@ public StoryTeller_2D () {
 * Die Methode 'cleanUp' säubert das Programm, bevor es beendet wird	
 */	
 	
-	private void cleanUp () {
+	private static void cleanUp () {
 		
 		AL.destroy();
 		
@@ -212,7 +207,7 @@ public StoryTeller_2D () {
 	public static void exit() {
 		
 		
-		storyTeller_2D.cleanUp();
+		cleanUp();
 		
 		System.exit(0);
 		
@@ -249,7 +244,7 @@ public StoryTeller_2D () {
 			
 		}
 		
-		storyTeller_2D.cleanUp();
+		cleanUp();
 		System.exit(1);
 		
 		}
