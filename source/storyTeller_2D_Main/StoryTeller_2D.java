@@ -21,9 +21,7 @@ import javax.swing.JFrame;
 
 import org.lwjgl.openal.AL;
 
-import storyTeller_2D_Graphics.Screen;
-import storyTeller_2D_Graphics.Spritesheet;
-import storyTeller_2D_Libraries.Spritesheets;
+import storyTeller_2D_Graphics.Renderer;
 
 public class StoryTeller_2D extends Canvas implements Runnable {
 
@@ -40,7 +38,7 @@ public class StoryTeller_2D extends Canvas implements Runnable {
 	
 	private JFrame frame;
 	private Thread gameRunner;
-	private Screen screen;
+	private Renderer screen;
 	
 	
 	private BufferedImage screenImage = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
@@ -51,7 +49,7 @@ public class StoryTeller_2D extends Canvas implements Runnable {
 	
 public StoryTeller_2D () {
 	
-	screen = new Screen (WIDTH, HEIGHT);
+	screen = new Renderer (WIDTH, HEIGHT);
 	
 	frame = new JFrame(TITLE);
 	frame.setSize(WIDTH, HEIGHT);
@@ -125,10 +123,6 @@ public StoryTeller_2D () {
 		stop();
 		
 	}
-	
-/*
-* Init-Methode	
-*/
 	
 
 /*
